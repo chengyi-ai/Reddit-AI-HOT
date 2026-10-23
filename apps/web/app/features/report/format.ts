@@ -119,9 +119,10 @@ export const EDITION: Record<ReportKind, string> = { daily: `${EDITION_WHEN.dail
 /**
  * The masthead's figures, in the order a reader wants them, in the site's words (REPORTS). Releases of the
  * pack's headline launch kind (RELEASE, "个新模型" for AI) count only where the pack has one; zero is left out.
+ * A figure whose unit the site sets to null is not shown.
  */
 const UNITS = REPORTS.metricUnits;
-const METRICS: Array<[key: string, unit: string]> = [
+const METRICS: Array<[key: string, unit: string | null]> = [
   ["totalEvents", ENTRIES_UNIT],
   ["totalStories", ENTRIES_UNIT],
   ["sourcesCount", UNITS.sourcesCount],
@@ -131,7 +132,7 @@ const METRICS: Array<[key: string, unit: string]> = [
   ["reportsCovered", UNITS.reportsCovered],
 ];
 export function metricItems(metrics: Record<string, number>): Array<{ value: number; unit: string }> {
-  return METRICS.filter(([k]) => typeof metrics[k] === "number" && (k !== "modelsReleased" || metrics[k]! > 0)).map(([k, unit]) => ({ value: metrics[k]!, unit }));
+  return METRICS.flatMap(([k, unit]) => unit !== null && typeof metrics[k] === "number" && (k !== "modelsReleased" || metrics[k]! > 0) ? [{ value: metrics[k]!, unit }] : []);
 }
 
 /** "前一日 · 9月25日", "上一期 · 第 37 周", "下一期 · 7 月". */
@@ -157,7 +158,7 @@ export function dateLine(kind: ReportKind, key: string): string {
 }
 
 /** What each kind is, under its nameplate. */
-export const MOTTO: Record<ReportKind, string> = { daily: `${REPORTS.motto} · 每日要闻`, weekly: `${REPORTS.motto} · 每周综述`, monthly: `${REPORTS.motto} · 每月盘点` };
+export const MOTTO: Record<ReportKind, string> = { daily: `${REPORTS.motto} · ${REPORTS.mottoKinds.daily}`, weekly: `${REPORTS.motto} · ${REPORTS.mottoKinds.weekly}`, monthly: `${REPORTS.motto} · ${REPORTS.mottoKinds.monthly}` };
 
 export interface PeriodCell {
   key: string | null;
