@@ -3,7 +3,7 @@
   "sources": [
     {
       "id": "reddit-promptengineering",
-      "name": "Reddit r/PromptEngineering",
+      "name": "r/PromptEngineering",
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.reddit.com/r/PromptEngineering/top/.rss?t=day",
@@ -25,7 +25,7 @@
     },
     {
       "id": "reddit-chatgptpromptgenius",
-      "name": "Reddit r/ChatGPTPromptGenius",
+      "name": "r/ChatGPTPromptGenius",
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.reddit.com/r/ChatGPTPromptGenius/top/.rss?t=day",
@@ -47,7 +47,7 @@
     },
     {
       "id": "reddit-claudeai",
-      "name": "Reddit r/ClaudeAI",
+      "name": "r/ClaudeAI",
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.reddit.com/r/ClaudeAI/top/.rss?t=day",
@@ -68,7 +68,7 @@
     },
     {
       "id": "reddit-claudecode",
-      "name": "Reddit r/ClaudeCode",
+      "name": "r/ClaudeCode",
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.reddit.com/r/ClaudeCode/top/.rss?t=day",
@@ -90,7 +90,7 @@
     },
     {
       "id": "reddit-ai-agents",
-      "name": "Reddit r/AI_Agents",
+      "name": "r/AI_Agents",
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.reddit.com/r/AI_Agents/top/.rss?t=day",
@@ -112,7 +112,7 @@
     },
     {
       "id": "reddit-chatgptcoding",
-      "name": "Reddit r/ChatGPTCoding",
+      "name": "r/ChatGPTCoding",
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.reddit.com/r/ChatGPTCoding/top/.rss?t=day",
@@ -134,7 +134,7 @@
     },
     {
       "id": "reddit-vibecoding",
-      "name": "Reddit r/vibecoding",
+      "name": "r/vibecoding",
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.reddit.com/r/vibecoding/top/.rss?t=day",
@@ -157,7 +157,7 @@
     },
     {
       "id": "reddit-sideproject",
-      "name": "Reddit r/SideProject",
+      "name": "r/SideProject",
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.reddit.com/r/SideProject/top/.rss?t=day",
@@ -179,7 +179,7 @@
     },
     {
       "id": "reddit-llmdevs",
-      "name": "Reddit r/LLMDevs",
+      "name": "r/LLMDevs",
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.reddit.com/r/LLMDevs/top/.rss?t=day",
@@ -201,7 +201,7 @@
     },
     {
       "id": "reddit-n8n",
-      "name": "Reddit r/n8n",
+      "name": "r/n8n",
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.reddit.com/r/n8n/top/.rss?t=day",
@@ -223,7 +223,7 @@
     },
     {
       "id": "reddit-comfyui",
-      "name": "Reddit r/comfyui",
+      "name": "r/comfyui",
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.reddit.com/r/comfyui/top/.rss?t=day",
@@ -246,7 +246,7 @@
     },
     {
       "id": "reddit-stablediffusion",
-      "name": "Reddit r/StableDiffusion",
+      "name": "r/StableDiffusion",
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.reddit.com/r/StableDiffusion/top/.rss?t=day",
@@ -269,7 +269,7 @@
     },
     {
       "id": "reddit-localllama",
-      "name": "Reddit r/LocalLLaMA",
+      "name": "r/LocalLLaMA",
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day",
@@ -291,7 +291,7 @@
     },
     {
       "id": "reddit-chatgpt",
-      "name": "Reddit r/ChatGPT",
+      "name": "r/ChatGPT",
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.reddit.com/r/ChatGPT/top/.rss?t=day",
@@ -312,7 +312,7 @@
     },
     {
       "id": "reddit-geminiai",
-      "name": "Reddit r/GeminiAI",
+      "name": "r/GeminiAI",
       "kind": "rss",
       "config": {
         "feedUrl": "https://www.reddit.com/r/GeminiAI/top/.rss?t=day",
