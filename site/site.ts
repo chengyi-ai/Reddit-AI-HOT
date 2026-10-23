@@ -63,7 +63,7 @@ export const SITE = {
    */
   interfaceVersion: "4.0.0",
   /** 对外联系邮箱（选填）：llms.txt 和给 Agent 的使用说明里会写。 */
-  contactEmail: null as string | null,
+  contactEmail: "chengyi.wks@gmail.com" as string | null,
   /** 关于页底部的一行小字（选填）。 */
   footerNote: "由 AIHOT 开源框架驱动",
   /** 中国大陆网站的 ICP 备案号（选填），填了就显示在侧栏底部和“我的”页底部，并链接到工信部备案系统。 */
@@ -87,7 +87,7 @@ export const POLICY = {
   terms: {
     /** 页面名：导航、页脚、页面标题都用它。 */
     name: "使用规则",
-    description: "本站网页、RSS、公开 API 与 MCP 的使用规则。",
+    description: "本站网页、RSS、公开 API、Agent Markdown 与 MCP 的使用规则，以及原作者如何申请更正或撤下。",
     /** llms.txt 里对这一页的一句说明（选填）。 */
     covers: null as string | null,
     /** Agent 接入页的 RSS、API 两栏各自提醒的使用规则（选填）。 */
@@ -96,7 +96,10 @@ export const POLICY = {
      * 讲清哪些用途要先取得授权的话（选填）：llms 接在 llms.txt“使用说明”的版权说明后面，
      * agent 写在给 Agent 的使用说明“使用规则”一节的开头。
      */
-    license: null as null | { llms: string; agent: string },
+    license: {
+      llms: "做成商业产品或付费服务、公开转载、批量抓取后再分发、用于训练模型，请先取得书面同意。",
+      agent: "做成商业产品或付费服务、公开转载、批量抓取后再分发、用于训练模型，请先取得书面同意。",
+    } as null | { llms: string; agent: string },
     /**
      * 公开 API、RSS 和 OpenAPI 文件声明使用规则的响应头（选填）：原样附上，再加一个指向这一页的
      * Link 头（rel="terms-of-service"）；浏览器里的调用方也读得到它们。
@@ -104,7 +107,7 @@ export const POLICY = {
     headers: null as null | Record<string, string>,
   },
   privacy: {
-    description: "本站如何处理浏览器本地数据、反馈资料与访问日志。",
+    description: "本站如何处理浏览器本地数据、反馈资料和日志，以及哪些内容会交给第三方。",
     /** llms.txt 里对这一页的一句说明（选填）。 */
     covers: null as string | null,
   },
