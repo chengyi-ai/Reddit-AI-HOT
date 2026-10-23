@@ -12,12 +12,12 @@
  * feedLabel 是分类 RSS 标题里的名字（不写就用 label）。公开接口、RSS 和 MCP 里要把一类并进另一类发布，写在站点设置里（site/site.ts 的 PUBLIC_CATEGORIES）。
  */
 export const CATEGORIES = [
-  { key: "ai-models", tagColor: "indigo", label: "模型", feedLabel: "AI 模型", section: "模型发布/更新", guide: "模型本身的发布、版本、权重开放、能力或价格变化，以及既有榜单上的模型成绩。公布一次跑分不是发布新基准，也不是教程。" },
-  { key: "ai-products", tagColor: "turquoise", label: "产品", feedLabel: "AI 产品", section: "产品发布/更新", guide: "可使用的 AI 产品、功能、应用、工具、API、平台和工程组件的发布更新。模型厂商发布的推理框架、算子库、硬件适配组件仍是产品，不能因为厂商名归成模型。" },
-  { key: "industry", tagColor: "orange", label: "行业", feedLabel: "行业动态", section: "行业动态", guide: "已发生的公司经营、融资并购、人事、合作、诉讼、政策、真实安全事故及调查进展。新闻由当事人发帖、带有态度，也不因此变成观点。" },
-  { key: "paper", tagColor: "violet", label: "论文", feedLabel: "论文", section: "论文研究", guide: "以新研究方法、实验设计与发现为核心的论文、技术报告、新基准或研究数据集。系统性红队实验属于研究；既有榜单成绩归模型，真实事故的新闻调查归行业。" },
-  { key: "tip", tagColor: "green", label: "教程", section: "技巧与观点", guide: "读者可以照着使用的方法、提示词、工具用法、工程实践复盘与技术讲解。重点是可复用的做法；单纯发布工具归产品，只有态度和预测而无做法归观点。", commentary: true },
-  { key: "opinion", tagColor: "purple", label: "观点", section: "技巧与观点", guide: "重点是作者的解释、判断、主张、预测、评论或访谈观点。讨论市场不自动归行业，作者是名人不自动归观点。", commentary: true },
+  { key: "tutorial", tagColor: "green", label: "教学", feedLabel: "AI 教学", section: "教学", guide: "读者能照着学会一件事的教程、讲解、上手指南和实战复盘：用什么、分几步、注意什么。重点是一段可以跟着做的过程；只贴一段提示词归提示词，只推荐一个工具归网站工具。", commentary: true },
+  { key: "prompt", tagColor: "turquoise", label: "提示词", section: "提示词", guide: "可以直接复制或改写使用的提示词、提示词写法和提问技巧，以及“这样问效果更好”的对比经验。重点是提示词本身；给 Claude、Cursor 等工具写的可复用规则、技能包和配置归 Skill。" },
+  { key: "skill", tagColor: "indigo", label: "Skill", section: "Skill", guide: "给 AI 助手和智能体装的可复用能力：Claude Skills、Cursor 规则、Agent 配置、MCP 服务器、工作流模板、自定义 GPT 等，读者装上或照着配置就能用。" },
+  { key: "tool", tagColor: "orange", label: "网站工具", feedLabel: "AI 网站与工具", section: "网站工具", guide: "别人推荐的、好用的 AI 网站、应用、插件和开源工具，重点是读者能拿来用的东西和它解决什么问题。作者自己做的归个人项目；厂商发布新模型或新功能的新闻归热门讨论。" },
+  { key: "project", tagColor: "violet", label: "个人项目", section: "个人项目", guide: "作者自己用 AI 做出来、或者为 AI 做的项目展示：应用、游戏、开源仓库、智能体、作品集，以及做的过程和踩的坑。重点是“我做了什么、怎么做的”；不是作者本人做的推荐归网站工具。" },
+  { key: "discussion", tagColor: "purple", label: "热门讨论", section: "热门讨论", guide: "上面几类之外，玩家们在热议的 AI 话题：模型和产品的新闻、使用体验和对比、观点争论、行业事件和有意思的现象。", commentary: true },
 ] as const satisfies ReadonlyArray<{ key: string; tagColor: string; label: string; feedLabel?: string; section: string; guide: string; commentary?: true }>;
 
 /**
@@ -25,7 +25,7 @@ export const CATEGORIES = [
  * category 是类别，tag 是标签，两者都对上才算；unit 接在数字后面。
  * 没有这样一类的行业设成 null，报头就不显示这个数。
  */
-export const RELEASE: { category: string; tag: string; unit: string } | null = { category: "ai-models", tag: "模型发布", unit: "个新模型" };
+export const RELEASE: { category: string; tag: string; unit: string } | null = null;
 
 /** 周报月报的总述可以直接写、不必在报道里找到出处的行业通用词（小写）。站名会自动算进去。 */
 export const PLAIN_TERMS: readonly string[] = ["ai", "api", "llm", "gpu", "agi", "ceo", "ipo"];
@@ -40,13 +40,13 @@ export const ITEM_TYPES = ["model_release", "product_launch", "tool_or_prompt", 
 
 /** 每篇资料的第一个标签必须是这些“分类标签”之一。 */
 export const CATEGORY_TAGS = [
-  "产品更新", "模型发布", "论文/研究", "开源/仓库", "教程/实践", "现象/趋势", "大佬观点", "评测/基准", "安全/对齐", "行业动态", "政策/监管",
+  "教学/教程", "提示词", "Skill/配置", "网站/工具", "个人项目", "开源/仓库", "实测/评测", "使用体验", "模型发布", "产品更新", "行业动态", "现象/讨论",
   "非AI/通用工具", "其他",
 ] as const;
 
 /** 可选的主题标签。 */
 export const TOPIC_TAGS = [
-  "Agent", "编码", "推理", "多模态", "语音", "视频", "图像生成", "RAG", "端侧", "数据/训练", "搜索", "部署/工程", "开源生态", "具身智能", "MCP/工具调用",
+  "Agent", "编码", "推理", "多模态", "语音", "视频", "图像生成", "RAG", "端侧", "数据/训练", "搜索", "部署/工程", "开源生态", "具身智能", "MCP/工具调用", "自动化", "写作/办公",
 ] as const;
 
 /** 可选的实体标签（公司、机构、平台）。 */
@@ -54,15 +54,18 @@ export const ENTITY_TAGS = ["OpenAI", "Anthropic", "DeepSeek", "DeepMind", "Goog
 
 /** 模型常写的近义词，统一成词表里的写法。 */
 export const TAG_SYNONYMS: Readonly<Record<string, string>> = {
-  "教程/玩法": "教程/实践", "技巧/最佳实践": "教程/实践", "合作/生态": "行业动态", "融资/收购": "行业动态", "公司动态": "行业动态",
-  合作: "行业动态", 生态: "行业动态", 融资: "行业动态", 收购: "行业动态", 投资: "行业动态", 并购: "行业动态",
-  政策: "政策/监管", 监管: "政策/监管", 法规: "政策/监管", 安全: "安全/对齐", 对齐: "安全/对齐",
-  论文: "论文/研究", 研究: "论文/研究", paper: "论文/研究", papers: "论文/研究",
+  教程: "教学/教程", 教学: "教学/教程", 指南: "教学/教程", 玩法: "教学/教程", 技巧: "教学/教程", 实践: "教学/教程", 最佳实践: "教学/教程", "教程/实践": "教学/教程",
+  prompt: "提示词", prompts: "提示词", 提示: "提示词", 提示语: "提示词",
+  skill: "Skill/配置", skills: "Skill/配置", 技能: "Skill/配置", 规则: "Skill/配置", 配置: "Skill/配置", 工作流: "Skill/配置",
+  工具: "网站/工具", 网站: "网站/工具", 应用: "网站/工具", 插件: "网站/工具", 推荐: "网站/工具",
+  项目: "个人项目", 作品: "个人项目", "side project": "个人项目", 我做的: "个人项目",
   "open-source": "开源/仓库", 开源: "开源/仓库", 仓库: "开源/仓库", repo: "开源/仓库",
-  教程: "教程/实践", 玩法: "教程/实践", 指南: "教程/实践", 技巧: "教程/实践", 最佳实践: "教程/实践", 实践: "教程/实践",
-  产品: "产品更新", 更新: "产品更新", 发布: "模型发布", 模型: "模型发布", 趋势: "现象/趋势", 现象: "现象/趋势", 观点: "大佬观点",
-  视频生成: "视频", 非ai: "非AI/通用工具", "non-ai": "非AI/通用工具", 通用工具: "非AI/通用工具", 工程工具: "非AI/通用工具",
-  安全扫描: "非AI/通用工具", devops: "非AI/通用工具", 行业: "行业动态", 动态: "行业动态",
+  评测: "实测/评测", 实测: "实测/评测", 测评: "实测/评测", 跑分: "实测/评测", "评测/基准": "实测/评测",
+  体验: "使用体验", 吐槽: "使用体验", 反馈: "使用体验",
+  发布: "模型发布", 模型: "模型发布", 产品: "产品更新", 更新: "产品更新",
+  行业: "行业动态", 动态: "行业动态", 融资: "行业动态", 收购: "行业动态", 合作: "行业动态", 政策: "行业动态", 监管: "行业动态",
+  讨论: "现象/讨论", 观点: "现象/讨论", 趋势: "现象/讨论", 现象: "现象/讨论", "大佬观点": "现象/讨论", "现象/趋势": "现象/讨论",
+  视频生成: "视频", 非ai: "非AI/通用工具", "non-ai": "非AI/通用工具", 通用工具: "非AI/通用工具",
 };
 
 // ── 公司与主体 ──────────────────────────────────────────────────────────────────────────

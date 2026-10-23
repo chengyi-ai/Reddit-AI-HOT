@@ -13,7 +13,7 @@
     {
       "key": "genre",
       "name": "内容类型",
-      "blurb": "按体裁浏览：论文、教程、观点、政策……"
+      "blurb": "按体裁浏览：教程、提示词、Skill、工具、个人项目……"
     }
   ],
   "topics": [
@@ -235,15 +235,6 @@
       "definition": "大模型是怎么练出来的：数据集构建、合成数据、预训练与后训练方法、算力与训练成本。"
     },
     {
-      "slug": "safety",
-      "name": "安全对齐",
-      "group": "field",
-      "tags": [
-        "安全/对齐"
-      ],
-      "definition": "让 AI 可控、可信、不被滥用：越狱与防御、模型行为研究、安全评测与治理框架。"
-    },
-    {
       "slug": "mcp",
       "name": "MCP 与工具调用",
       "group": "field",
@@ -251,6 +242,96 @@
         "MCP/工具调用"
       ],
       "definition": "让 AI 连上外部软件和数据：MCP 协议、function calling 工具调用与各类工具集成。"
+    },
+    {
+      "slug": "automation",
+      "name": "AI 自动化",
+      "group": "field",
+      "tags": [
+        "自动化"
+      ],
+      "definition": "用 n8n、Make、智能体和脚本把重复工作交给 AI：工作流搭建、实用模板和踩坑经验。"
+    },
+    {
+      "slug": "writing",
+      "name": "写作与办公",
+      "group": "field",
+      "tags": [
+        "写作/办公"
+      ],
+      "definition": "用 AI 写作、做 PPT、整理文档和邮件的方法、提示词和工具。"
+    },
+    {
+      "slug": "tutorials",
+      "name": "AI 教学",
+      "group": "genre",
+      "tags": [
+        "教学/教程"
+      ],
+      "definition": "能照着做的 AI 教程、上手指南和实战复盘：用什么、分几步、注意什么。"
+    },
+    {
+      "slug": "prompts",
+      "name": "提示词",
+      "group": "genre",
+      "tags": [
+        "提示词"
+      ],
+      "definition": "玩家分享的好用提示词、提问技巧和前后效果对比。"
+    },
+    {
+      "slug": "skills",
+      "name": "Skill 与配置",
+      "group": "genre",
+      "tags": [
+        "Skill/配置"
+      ],
+      "definition": "Claude Skills、Cursor 规则、Agent 配置、MCP 服务器和工作流模板，装上就能用。"
+    },
+    {
+      "slug": "tools",
+      "name": "网站与工具",
+      "group": "genre",
+      "tags": [
+        "网站/工具"
+      ],
+      "definition": "玩家推荐的好用 AI 网站、应用、插件和开源工具。"
+    },
+    {
+      "slug": "projects",
+      "name": "个人项目",
+      "group": "genre",
+      "tags": [
+        "个人项目"
+      ],
+      "definition": "玩家用 AI 做出来的应用、游戏、智能体和开源项目，以及做的过程。"
+    },
+    {
+      "slug": "benchmarks",
+      "name": "实测评测",
+      "group": "genre",
+      "tags": [
+        "实测/评测"
+      ],
+      "definition": "玩家亲手跑的模型和工具对比、跑分与实测。"
+    },
+    {
+      "slug": "experience",
+      "name": "使用体验",
+      "group": "genre",
+      "tags": [
+        "使用体验"
+      ],
+      "definition": "大家用各家模型和工具的真实感受、吐槽与对比。"
+    },
+    {
+      "slug": "discussions",
+      "name": "热门讨论",
+      "group": "genre",
+      "tags": [
+        "现象/讨论"
+      ],
+      "definition": "玩家们正在热议的 AI 话题、观点与现象。"
     },
     {
       "slug": "model-releases",
@@ -271,51 +352,6 @@
       "definition": "AI 产品与应用的功能上新、改版与商业化——谁家的产品变强了、变贵了、能用了。"
     },
     {
-      "slug": "papers",
-      "name": "论文研究",
-      "group": "genre",
-      "tags": [
-        "论文/研究"
-      ],
-      "definition": "值得读的 AI 论文与研究成果：架构创新、训练方法、能力测量与理论进展。"
-    },
-    {
-      "slug": "benchmarks",
-      "name": "评测基准",
-      "group": "genre",
-      "tags": [
-        "评测/基准"
-      ],
-      "definition": "模型到底谁更强：Benchmark 评测成绩、评测方法的争议与排行榜变化。"
-    },
-    {
-      "slug": "tutorials",
-      "name": "教程实践",
-      "group": "genre",
-      "tags": [
-        "教程/实践"
-      ],
-      "definition": "拿来就能用的实操内容：提示词技巧、工作流搭建、工具用法与踩坑经验。"
-    },
-    {
-      "slug": "opinions",
-      "name": "大佬观点",
-      "group": "genre",
-      "tags": [
-        "大佬观点"
-      ],
-      "definition": "行业关键人物在想什么：创始人访谈、研究者论战与投资人判断。"
-    },
-    {
-      "slug": "trends",
-      "name": "现象与趋势",
-      "group": "genre",
-      "tags": [
-        "现象/趋势"
-      ],
-      "definition": "AI 正在改变什么：大家怎么用 AI、新能力的出现、对社会与市场格局的影响。"
-    },
-    {
       "slug": "industry",
       "name": "行业动态",
       "group": "genre",
@@ -323,15 +359,6 @@
         "行业动态"
       ],
       "definition": "AI 圈的商业大事：融资并购、人事变动、合作与竞争、政策与市场变化。"
-    },
-    {
-      "slug": "policy",
-      "name": "政策监管",
-      "group": "genre",
-      "tags": [
-        "政策/监管"
-      ],
-      "definition": "AI 相关的政策法规与政府监管：立法进展、出口管制与全球治理。"
     }
   ]
 }

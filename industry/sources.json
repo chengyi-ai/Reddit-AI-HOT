@@ -1,12 +1,12 @@
 {
-  "$comment": "信源（Reddit 社区为主，官方博客作一手锚点）：首次启动时导入（scripts/seed.ts），已存在的不会被覆盖。之后在后台“信源”里新建、修改和暂停。字段说明见 docs/customize.md。",
+  "$comment": "信源（Reddit 玩家社区为主：教程、提示词、Skill、工具和个人项目；官方博客和新闻向社区只作热度证据）：首次启动时导入（scripts/seed.ts），已存在的不会被覆盖。之后在后台“信源”里新建、修改和暂停。字段说明见 docs/customize.md。",
   "sources": [
     {
-      "id": "reddit-localllama",
-      "name": "Reddit r/LocalLLaMA",
+      "id": "reddit-promptengineering",
+      "name": "Reddit r/PromptEngineering",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/PromptEngineering/top/.rss?t=day",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -18,17 +18,17 @@
       "interval_minutes": 60,
       "tags": [
         "社区",
-        "开源"
+        "提示词"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "reddit-machinelearning",
-      "name": "Reddit r/MachineLearning",
+      "id": "reddit-chatgptpromptgenius",
+      "name": "Reddit r/ChatGPTPromptGenius",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/MachineLearning/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/ChatGPTPromptGenius/top/.rss?t=day",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -40,28 +40,7 @@
       "interval_minutes": 60,
       "tags": [
         "社区",
-        "研究"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "reddit-openai",
-      "name": "Reddit r/OpenAI",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.reddit.com/r/OpenAI/top/.rss?t=day",
-        "summaryIsBody": true,
-        "_aihot": {
-          "initialBackfillLimit": 10
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "社区"
+        "提示词"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
@@ -88,11 +67,11 @@
       "syndicate_fulltext": false
     },
     {
-      "id": "reddit-bard",
-      "name": "Reddit r/Bard",
+      "id": "reddit-claudecode",
+      "name": "Reddit r/ClaudeCode",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/Bard/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/ClaudeCode/top/.rss?t=day",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -103,7 +82,164 @@
       "participation_mode": "editorial",
       "interval_minutes": 60,
       "tags": [
-        "社区"
+        "社区",
+        "编程"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "reddit-ai-agents",
+      "name": "Reddit r/AI_Agents",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.reddit.com/r/AI_Agents/top/.rss?t=day",
+        "summaryIsBody": true,
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "社区",
+        "Agent"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "reddit-chatgptcoding",
+      "name": "Reddit r/ChatGPTCoding",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.reddit.com/r/ChatGPTCoding/top/.rss?t=day",
+        "summaryIsBody": true,
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "社区",
+        "编程"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "reddit-vibecoding",
+      "name": "Reddit r/vibecoding",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.reddit.com/r/vibecoding/top/.rss?t=day",
+        "summaryIsBody": true,
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "社区",
+        "编程",
+        "项目"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "reddit-sideproject",
+      "name": "Reddit r/SideProject",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.reddit.com/r/SideProject/top/.rss?t=day",
+        "summaryIsBody": true,
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "社区",
+        "项目"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "reddit-llmdevs",
+      "name": "Reddit r/LLMDevs",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.reddit.com/r/LLMDevs/top/.rss?t=day",
+        "summaryIsBody": true,
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "社区",
+        "开发"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "reddit-n8n",
+      "name": "Reddit r/n8n",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.reddit.com/r/n8n/top/.rss?t=day",
+        "summaryIsBody": true,
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "社区",
+        "自动化"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "reddit-comfyui",
+      "name": "Reddit r/comfyui",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.reddit.com/r/comfyui/top/.rss?t=day",
+        "summaryIsBody": true,
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "社区",
+        "图像",
+        "工作流"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
@@ -125,17 +261,40 @@
       "interval_minutes": 60,
       "tags": [
         "社区",
+        "图像",
         "开源"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "reddit-singularity",
-      "name": "Reddit r/singularity",
+      "id": "reddit-localllama",
+      "name": "Reddit r/LocalLLaMA",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/singularity/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day",
+        "summaryIsBody": true,
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "hot_signal",
+      "interval_minutes": 60,
+      "tags": [
+        "社区",
+        "开源"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "reddit-chatgpt",
+      "name": "Reddit r/ChatGPT",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.reddit.com/r/ChatGPT/top/.rss?t=day",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -152,11 +311,11 @@
       "syndicate_fulltext": false
     },
     {
-      "id": "reddit-artificial",
-      "name": "Reddit r/artificial",
+      "id": "reddit-geminiai",
+      "name": "Reddit r/GeminiAI",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/artificial/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/GeminiAI/top/.rss?t=day",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -184,7 +343,7 @@
       },
       "tier": "T1",
       "owner_entity_id": "openai",
-      "participation_mode": "editorial",
+      "participation_mode": "hot_signal",
       "interval_minutes": 120,
       "tags": [
         "官方"
@@ -204,7 +363,7 @@
       },
       "tier": "T1",
       "owner_entity_id": "google",
-      "participation_mode": "editorial",
+      "participation_mode": "hot_signal",
       "interval_minutes": 120,
       "tags": [
         "官方"
@@ -224,7 +383,7 @@
       },
       "tier": "T1",
       "owner_entity_id": "google",
-      "participation_mode": "editorial",
+      "participation_mode": "hot_signal",
       "interval_minutes": 120,
       "tags": [
         "官方",
@@ -245,7 +404,7 @@
       },
       "tier": "T1",
       "owner_entity_id": "hugging-face",
-      "participation_mode": "editorial",
+      "participation_mode": "hot_signal",
       "interval_minutes": 120,
       "tags": [
         "官方",
@@ -266,7 +425,7 @@
       },
       "tier": "T1",
       "owner_entity_id": "microsoft",
-      "participation_mode": "editorial",
+      "participation_mode": "hot_signal",
       "interval_minutes": 120,
       "tags": [
         "官方",
@@ -287,7 +446,7 @@
       },
       "tier": "T1",
       "owner_entity_id": "nvidia",
-      "participation_mode": "editorial",
+      "participation_mode": "hot_signal",
       "interval_minutes": 120,
       "tags": [
         "官方"
@@ -307,7 +466,7 @@
       },
       "tier": "T1",
       "owner_entity_id": null,
-      "participation_mode": "editorial",
+      "participation_mode": "hot_signal",
       "interval_minutes": 120,
       "tags": [
         "官方",
@@ -328,7 +487,7 @@
       },
       "tier": "T1",
       "owner_entity_id": null,
-      "participation_mode": "editorial",
+      "participation_mode": "hot_signal",
       "interval_minutes": 120,
       "tags": [
         "官方"
@@ -348,7 +507,7 @@
       },
       "tier": "T1",
       "owner_entity_id": null,
-      "participation_mode": "editorial",
+      "participation_mode": "hot_signal",
       "interval_minutes": 120,
       "tags": [
         "官方"
@@ -368,7 +527,7 @@
       },
       "tier": "T1",
       "owner_entity_id": null,
-      "participation_mode": "editorial",
+      "participation_mode": "hot_signal",
       "interval_minutes": 180,
       "tags": [
         "研究"
