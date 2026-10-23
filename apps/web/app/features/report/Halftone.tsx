@@ -1,5 +1,5 @@
 // The date in the masthead's 报眼 as a signal board: text drawn on a canvas as a halftone of dots, the
-// accent part in the brand teal and the rest in ink, over a faint grid of unlit dots and the text's own
+// accent part in the brand accent and the rest in ink, over a faint grid of unlit dots and the text's own
 // faint silhouette. The dot texture comes from `seed` (the issue), so every
 // issue's board differs. Dots print in from the left on load and light up under the pointer; reduced
 // motion gets the still board.
