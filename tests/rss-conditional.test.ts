@@ -17,6 +17,7 @@ const modified = 'Mon, 28 Sep 2026 10:00:00 GMT';
 const server = http.createServer((req, res) => {
   const path = req.url ?? '/';
   requests.push({ path, etag: req.headers['if-none-match'], modified: req.headers['if-modified-since'] });
+  if (path === '/limited.xml') { res.writeHead(429, { 'retry-after': '300' }); res.end('Too Many Requests'); return; }
   if (path === '/redirect') { res.writeHead(302, { location: redirectNew ? '/new.xml' : '/old.xml' }); res.end(); return; }
   const etag = path === '/modified.xml' ? undefined : path === '/feed.xml' ? `"v${version}"` : '"shared"';
   if ((etag && req.headers['if-none-match'] === etag) || (!etag && req.headers['if-modified-since'] === modified)) {
@@ -83,4 +84,22 @@ test('Last-Modified works without ETag and changing redirect targets cannot acce
   assert.equal((await collectSource(redirect)).created, 1, 'new destination is fetched without old destination validators');
   assert.equal(requests.at(-1)!.path, '/new.xml');
   assert.equal(requests.at(-1)!.etag, undefined);
+});
+
+test('a host rate limit defers its sources until it reopens without counting a failure', async () => {
+  const ids = [`rss-limited-${T}`, `rss-limited-sibling-${T}`];
+  for (const id of ids) {
+    await sql`INSERT INTO sources (id,name,kind,config,tier,participation_mode,cursor,next_fetch_at)
+      VALUES (${id},'RSS rate limit test','rss',${sql.json({ feedUrl: base.replace('127.0.0.1', 'localhost') + '/limited.xml' })},'T1','editorial',
+        ${sql.json({ initializedAt: new Date().toISOString() })},'2100-01-01')`;
+  }
+  const asked = requests.length;
+  for (const id of ids) assert.equal((await collectSource(id)).status, 'failed');
+  assert.equal(requests.length - asked, 1, 'the sibling waits for the host instead of asking again');
+  const rows = await sql`SELECT health, fail_count, extract(epoch FROM next_fetch_at - now()) AS wait FROM sources WHERE id IN ${sql(ids)}`;
+  for (const r of rows) {
+    assert.equal(r.fail_count, 0);
+    assert.notEqual(r.health, 'degraded');
+    assert.ok(Number(r.wait) > 280 && Number(r.wait) <= 300, String(r.wait));
+  }
 });

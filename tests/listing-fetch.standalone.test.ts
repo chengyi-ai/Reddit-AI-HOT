@@ -1,12 +1,15 @@
 // Free listing reads: one retry after a dropped connection or an upstream 500, YouTube's intermittent
-// missing feed included, and nothing else is read twice. Without live services or a database.
+// missing feed included, and nothing else is read twice. One host is read one request at a time, and a
+// host whose rate limit is spent is not asked again before it said to. Without live services or a database.
 import assert from "node:assert/strict";
+import http from "node:http";
 import { syncBuiltinESMExports } from "node:module";
+import type { AddressInfo } from "node:net";
 import { after, mock, test } from "node:test";
 import timersPromises from "node:timers/promises";
 import { MockAgent, getGlobalDispatcher, setGlobalDispatcher } from "undici";
 import { config } from "@aihot/backend/config";
-import { fetchListing } from "@aihot/backend/sources/listing-fetch";
+import { fetchListing, HostRateLimitedError } from "@aihot/backend/sources/listing-fetch";
 import { fetchRss } from "@aihot/backend/sources/rss";
 import { fetchWebList } from "@aihot/backend/sources/web-list";
 import { fetchJsonList } from "@aihot/backend/sources/json-list";
@@ -82,12 +85,53 @@ test("upstream 500 is retried once, but ordinary missing URLs and access/rate re
   mockAgent.get(origin).intercept({ path: "/temporary" }).reply(200, "Recovered");
   assert.equal((await fetchListing(origin + "/temporary")).text(), "Recovered");
   for (const [host, path, status] of [
-    [origin, "/missing", 404], [origin, "/auth", 401], [origin, "/verify", 403], [origin, "/rate", 429],
+    [origin, "/missing", 404], [origin, "/auth", 401], [origin, "/verify", 403], ["https://refusing.invalid", "/rate", 429],
     ["https://www.youtube.com.evil.invalid", channelPath, 404], [youtube, "/watch?v=missing", 404],
   ] as const) {
     let hits = 0;
     mockAgent.get(host).intercept({ path }).reply(status, () => { hits++; return "Refused"; }).persist();
-    assert.equal((await fetchListing(host + path)).status, status);
+    if (status === 429) await assert.rejects(fetchListing(host + path), HostRateLimitedError);
+    else assert.equal((await fetchListing(host + path)).status, status);
     assert.equal(hits, 1, host + path);
   }
+});
+
+test("a host is read one request at a time and not asked again until its spent limit resets", async () => {
+  let inFlight = 0;
+  let most = 0;
+  const paths: string[] = [];
+  const server = http.createServer((req, res) => {
+    paths.push(req.url!);
+    most = Math.max(most, ++inFlight);
+    setImmediate(() => {
+      inFlight--;
+      res.writeHead(200, { "x-ratelimit-remaining": req.url === "/r/a" ? "1.0" : "0.0", "x-ratelimit-reset": "40" }).end(xml);
+    });
+  });
+  await new Promise<void>((resolve) => server.listen(0, "127.0.0.1", resolve));
+  mockAgent.enableNetConnect(/^127\.0\.0\.1:/);
+  const base = `http://127.0.0.1:${(server.address() as AddressInfo).port}`;
+  try {
+    const started = Date.now();
+    const [a, b, c] = await Promise.allSettled(["a", "b", "c"].map((name) => fetchListing(`${base}/r/${name}`)));
+    assert.equal(most, 1);
+    assert.deepEqual(paths, ["/r/a", "/r/b"]);
+    assert.equal(a.status, "fulfilled");
+    assert.equal(b.status, "fulfilled");
+    assert.ok(c.status === "rejected" && c.reason instanceof HostRateLimitedError);
+    const wait = c.reason.until.getTime() - started;
+    assert.ok(wait >= 40_000 && wait < 45_000, String(wait));
+  } finally {
+    mockAgent.disableNetConnect();
+    server.close();
+  }
+
+  // A refusal names its own wait; other hosts are not held up by it.
+  const other = "https://other.invalid";
+  mockAgent.get(other).intercept({ path: "/429" }).reply(429, "Too Many Requests", { headers: { "retry-after": "120" } });
+  const refused = await fetchListing(other + "/429").catch((error: unknown) => error);
+  assert.ok(refused instanceof HostRateLimitedError && refused.status === 429);
+  assert.ok(refused.until.getTime() - Date.now() > 110_000);
+  mockAgent.get(origin).intercept({ path: "/open" }).reply(200, "Open");
+  assert.equal((await fetchListing(origin + "/open")).text(), "Open");
 });
