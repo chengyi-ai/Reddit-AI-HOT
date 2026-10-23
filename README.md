@@ -1,3 +1,5 @@
+> **Reddit-AI-HOT**：本仓库基于 [KKKKhazix/AIHOT](https://github.com/KKKKhazix/AIHOT) 模板，把信源换成以 Reddit 的 AI 社区为主（r/LocalLLaMA、r/MachineLearning、r/OpenAI、r/ClaudeAI、r/Bard、r/StableDiffusion 进精选，r/singularity、r/artificial 只算热度），另保留 10 个官方博客作为一手来源。Reddit 通过各版块“当天最热”的 RSS 采集，不需要 Reddit API 凭据；服务器需要能访问 reddit.com（大陆服务器需设置 `EGRESS_PROXY_URL`）。下面是原项目的说明。
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="docs/assets/banner-dark.png">
