@@ -6,7 +6,8 @@ import assert from "node:assert/strict";
 import { after, before, test } from "node:test";
 import type { ReportDetail, ReportKind, ReportNavigationEntry } from "@aihot/contracts/site";
 import { isoWeekLabel } from "@aihot/contracts/time";
-import { issueNumber, periodGrid } from "../app/features/report/format.ts";
+import { REPORTS } from "@aihot/site";
+import { issueNumber, metricItems, periodGrid } from "../app/features/report/format.ts";
 import { fakeApi, startWebServer, type WebServer } from "./web-server.ts";
 
 const kinds: ReportKind[] = ["daily", "weekly", "monthly"];
@@ -82,4 +83,10 @@ test("the daily archive counts every issue, as the masthead numbers them", async
   const response = await fetch(`${web.origin}/daily/archive`);
   assert.equal(response.status, 200, web.logs());
   assert.match(masthead(await response.text()), /共\s*405\s*期/);
+});
+
+test("the masthead leaves out a figure whose unit the site sets to null", () => {
+  const units = metricItems({ sourcesCount: 12, firstPartyEvents: 3, selectedCount: 30 }).map((m) => m.unit);
+  assert.equal(units.includes(REPORTS.metricUnits.sourcesCount), true);
+  assert.equal(units.length, REPORTS.metricUnits.firstPartyEvents === null ? 2 : 3);
 });

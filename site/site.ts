@@ -196,8 +196,9 @@ export const AGENT = {
 export const REPORTS = {
   /** 报头下面的出版者一行。 */
   imprint: SITE.name.toUpperCase(),
-  /** 报头旁边的一个词。 */
+  /** 报头旁边的一个词，和跟在它后面、每种报告各自的说法（“AI · 每日好帖”）。 */
   motto: SITE.subject as string,
+  mottoKinds: { daily: "每日好帖", weekly: "每周好帖", monthly: "每月好帖" },
   /** 每种报告页面的描述（搜索结果、分享卡片），不带句号；llms.txt 介绍周报、月报时也用它。 */
   descriptions: {
     daily: `${SITE.name} ${subjectAfter(`${EDITION_WHEN.daily}（北京时间）发布的`, "玩家精选日报")}`,
@@ -209,8 +210,11 @@ export const REPORTS = {
    * 周报月报没有总述时的那句话，以及订阅说明里的“按栏目分好的大事”都用它。
    */
   entry: { measure: "条", noun: "好帖" },
-  /** 报头上其余几个数字后面的说法；精选数和日报期数在关于页、主题页也这样写。 */
-  metricUnits: { sourcesCount: "个来源", firstPartyEvents: "件一手发布", selectedCount: "条精选", reportsCovered: "期日报" },
+  /**
+   * 报头上其余几个数字后面的说法；精选数和日报期数在关于页、主题页也这样写。设成 null 的数字不上报头：
+   * 这个站的一手信源（官方博客）只算热度、不进日报，“件一手发布”总是 0。
+   */
+  metricUnits: { sourcesCount: "个来源", firstPartyEvents: null, selectedCount: "条精选", reportsCovered: "期日报" } as { sourcesCount: string; firstPartyEvents: string | null; selectedCount: string; reportsCovered: string },
   /** 报告分享图上“共几条”的说法。 */
   shareUnit: "条好帖",
   /** 日报时段内有资料经过评判、但没有新大事时的标题与导语。 */
