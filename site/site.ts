@@ -27,9 +27,9 @@ export const SITE = {
    */
   subject: "AI",
   /** 首页的完整标题（浏览器标签、搜索结果）。 */
-  homeTitle: "Reddit-AI-HOT — Reddit 上的 AI 动态 · 每日精选与日报",
+  homeTitle: "Reddit-AI-HOT — Reddit 玩家的 AI 教程、提示词、Skill 与项目 · 每日精选",
   /** 主题目录页（/topics）的标题。 */
-  topicsTitle: "AI 主题：公司与模型、技术方向、内容形态的最新动态",
+  topicsTitle: "AI 主题：按公司、方向和内容形态浏览教程、提示词、工具与项目",
   /** 反馈表单输入框里的示例。 */
   feedbackExample: "例如：我在搜索某个关键词时遇到……我原本想……",
   /** 反馈页标题下面的一句话。 */
@@ -37,13 +37,13 @@ export const SITE = {
   /** 反馈表单邮箱框里的提示。 */
   feedbackEmailHint: "留下邮箱，我们可以回信联系你",
   /** 一句话介绍：搜索引擎、分享卡片、RSS、llms.txt 会用。 */
-  description: `从 Reddit 的 AI 社区和官方博客里挑出值得看的动态，把同一件事的多篇报道归到一起，${EDITION_WHEN.daily} 出一份日报。`,
+  description: `从 Reddit 的 AI 玩家社区里挑出最热的实用内容：AI 教学、好用的提示词、Skill、网站工具和个人项目，${EDITION_WHEN.daily} 出一份日报。`,
   /** llms.txt 里一句话介绍下面的一段详细介绍（选填）。 */
   llmsIntro: null as string | null,
   /** 一行小字：分享图、海报下方。 */
-  tagline: "Reddit 上值得关注的 AI 动态",
+  tagline: "Reddit 玩家都在分享的 AI 好东西",
   /** 搜索引擎读到的关键词（首页结构化数据）。 */
-  keywords: ["AI 资讯", "AI 新闻", "AI 日报", "Reddit AI", "LocalLLaMA"] as string[],
+  keywords: ["AI 教程", "提示词", "Prompt", "Claude Skills", "AI 工具", "Reddit AI"] as string[],
   /** 网站开始收录的年份（结构化数据的时间范围，选填）。 */
   since: null as string | null,
   /** 界面语言（HTML lang、og:locale）。 */

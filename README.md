@@ -1,4 +1,4 @@
-> **Reddit-AI-HOT**：本仓库基于 [KKKKhazix/AIHOT](https://github.com/KKKKhazix/AIHOT) 模板，把信源换成以 Reddit 的 AI 社区为主（r/LocalLLaMA、r/MachineLearning、r/OpenAI、r/ClaudeAI、r/Bard、r/StableDiffusion 进精选，r/singularity、r/artificial 只算热度），另保留 10 个官方博客作为一手来源。Reddit 通过各版块“当天最热”的 RSS 采集，不需要 Reddit API 凭据；服务器需要能访问 reddit.com（大陆服务器需设置 `EGRESS_PROXY_URL`）。下面是原项目的说明。
+> **Reddit-AI-HOT**：本仓库基于 [KKKKhazix/AIHOT](https://github.com/KKKKhazix/AIHOT) 模板，改成收集 Reddit 上 AI 玩家分享的实用内容：AI 教学、好用的提示词、Skill、网站工具和个人项目，外加热门讨论。进精选的是 r/PromptEngineering、r/ChatGPTPromptGenius、r/ClaudeAI、r/ClaudeCode、r/AI_Agents、r/ChatGPTCoding、r/vibecoding、r/SideProject、r/LLMDevs、r/n8n、r/comfyui、r/StableDiffusion；r/LocalLLaMA、r/ChatGPT、r/GeminiAI 和 10 个官方博客只算热度。Reddit 通过各版块“当天最热”的 RSS 采集，不需要 Reddit API 凭据；匿名读取每个 IP 约一分钟一次，采集会自动排队。服务器需要能访问 reddit.com（大陆服务器需设置 `EGRESS_PROXY_URL`）。下面是原项目的说明。
 
 <p align="center">
   <picture>
