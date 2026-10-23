@@ -1,0 +1,11 @@
+{
+  "name": "@aihot/feedback-retention",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./*": "./*.ts"
+  },
+  "dependencies": {
+    "@aihot/backend": "*"
+  }
+}
