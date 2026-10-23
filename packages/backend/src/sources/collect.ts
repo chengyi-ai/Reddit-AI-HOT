@@ -14,6 +14,7 @@ import { fetchDetail, fetchWebList, isCallToActionTitle, needsTitle, type Detail
 import { unsupportedConfig } from "./config-keys.ts";
 import { admitListing, filterPublicationWindow } from "./filters.ts";
 import { fetchJsonList } from "./json-list.ts";
+import { HostRateLimitedError } from "./listing-fetch.ts";
 import { fetchXSearch, planXShards, readXSearch, shardHandle, shardQuery, selfThreadHandle, SHARDABLE_SQL, tweetToCandidate, type XBacklog } from "./x.ts";
 import { FetchError, type Candidate, type SourceRow } from "./types.ts";
 
@@ -251,9 +252,10 @@ async function store(sourceId: string, runId: number, candidates: CollectionCand
 /**
  * The end of a fetch run, on the run and on its source. Success marks the source healthy and due again
  * one interval later. A failure counts toward "failing" (5 in a row) and waits longer after each one,
- * up to six hours; a full budget is not the source's failure: it waits 15 minutes and counts nothing.
+ * up to six hours; a full budget is not the source's failure: it waits 15 minutes and counts nothing,
+ * and neither does a host's rate limit: it waits until the host takes requests again (`retryAt`).
  */
-async function recordFetch(db: Db, sourceId: string, runId: number, run: { found: number; created: number; detail: object | null } & ({ cursor: Record<string, unknown> } | { error: string; budget: boolean })): Promise<void> {
+async function recordFetch(db: Db, sourceId: string, runId: number, run: { found: number; created: number; detail: object | null } & ({ cursor: Record<string, unknown> } | { error: string; budget: boolean; retryAt?: Date })): Promise<void> {
   const detail = run.detail ? db.json(run.detail as never) : null;
   if ("cursor" in run) {
     await db`
@@ -265,12 +267,14 @@ async function recordFetch(db: Db, sourceId: string, runId: number, run: { found
       detail = nullif(coalesce(detail,'{}'::jsonb) || coalesce(${detail}::jsonb,'{}'::jsonb),'{}'::jsonb) WHERE id = ${runId}`;
     return;
   }
+  const deferred = run.budget || !!run.retryAt;
   await db`
     UPDATE sources SET last_fetch_at = now(),
-      fail_count = CASE WHEN ${run.budget} THEN fail_count ELSE fail_count + 1 END,
+      fail_count = CASE WHEN ${deferred} THEN fail_count ELSE fail_count + 1 END,
       last_error = ${run.error},
-      health = CASE WHEN ${run.budget} THEN health WHEN fail_count + 1 >= 5 THEN 'failing' ELSE 'degraded' END,
-      next_fetch_at = now() + make_interval(mins => CASE WHEN ${run.budget} THEN 15 ELSE LEAST(interval_minutes * (fail_count + 2), 360) END),
+      health = CASE WHEN ${deferred} THEN health WHEN fail_count + 1 >= 5 THEN 'failing' ELSE 'degraded' END,
+      next_fetch_at = coalesce(${run.retryAt ?? null}::timestamptz,
+        now() + make_interval(mins => CASE WHEN ${run.budget} THEN 15 ELSE LEAST(interval_minutes * (fail_count + 2), 360) END)),
       updated_at = now()
     WHERE id = ${sourceId}`;
   await db`UPDATE fetch_runs SET status = 'failed', finished_at = now(), found_count = ${run.found}, new_count = ${run.created},
@@ -373,7 +377,8 @@ export async function collectSource(sourceId: string, opts: { force?: boolean; x
   } catch (error) {
     if (shutdownSignal.signal.aborted) throw error;
     const message = String(error instanceof Error ? error.message : error).slice(0, 1000);
-    await recordFetch(sql, sourceId, run!.id, { found, created, detail: null, error: message, budget: error instanceof BudgetExceededError });
+    await recordFetch(sql, sourceId, run!.id, { found, created, detail: null, error: message, budget: error instanceof BudgetExceededError,
+      retryAt: error instanceof HostRateLimitedError ? error.until : undefined });
     return { sourceId, status: "failed", found, created, revised, error: message };
   }
 }
