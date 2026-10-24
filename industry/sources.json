@@ -15,7 +15,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 60,
+      "interval_minutes": 30,
       "tags": [
         "社区",
         "提示词"
@@ -37,7 +37,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 60,
+      "interval_minutes": 30,
       "tags": [
         "社区",
         "提示词"
@@ -59,7 +59,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 60,
+      "interval_minutes": 30,
       "tags": [
         "社区"
       ],
@@ -80,7 +80,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 60,
+      "interval_minutes": 30,
       "tags": [
         "社区",
         "编程"
@@ -102,7 +102,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 60,
+      "interval_minutes": 30,
       "tags": [
         "社区",
         "Agent"
@@ -124,7 +124,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 60,
+      "interval_minutes": 30,
       "tags": [
         "社区",
         "编程"
@@ -146,7 +146,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 60,
+      "interval_minutes": 30,
       "tags": [
         "社区",
         "编程",
@@ -169,7 +169,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 60,
+      "interval_minutes": 30,
       "tags": [
         "社区",
         "项目"
@@ -191,7 +191,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 60,
+      "interval_minutes": 30,
       "tags": [
         "社区",
         "开发"
@@ -213,7 +213,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 60,
+      "interval_minutes": 30,
       "tags": [
         "社区",
         "自动化"
@@ -235,7 +235,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 60,
+      "interval_minutes": 30,
       "tags": [
         "社区",
         "图像",
@@ -258,7 +258,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 60,
+      "interval_minutes": 30,
       "tags": [
         "社区",
         "图像",
