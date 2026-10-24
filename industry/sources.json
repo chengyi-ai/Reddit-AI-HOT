@@ -6,7 +6,7 @@
       "name": "r/PromptEngineering",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/PromptEngineering/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/PromptEngineering/top/.rss?t=day&limit=10",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -28,7 +28,7 @@
       "name": "r/ChatGPTPromptGenius",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/ChatGPTPromptGenius/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/ChatGPTPromptGenius/top/.rss?t=day&limit=10",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -50,7 +50,7 @@
       "name": "r/ClaudeAI",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/ClaudeAI/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/ClaudeAI/top/.rss?t=day&limit=10",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -71,7 +71,7 @@
       "name": "r/ClaudeCode",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/ClaudeCode/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/ClaudeCode/top/.rss?t=day&limit=10",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -93,7 +93,7 @@
       "name": "r/AI_Agents",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/AI_Agents/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/AI_Agents/top/.rss?t=day&limit=10",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -115,7 +115,7 @@
       "name": "r/ChatGPTCoding",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/ChatGPTCoding/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/ChatGPTCoding/top/.rss?t=day&limit=10",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -137,7 +137,7 @@
       "name": "r/vibecoding",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/vibecoding/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/vibecoding/top/.rss?t=day&limit=10",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -160,7 +160,7 @@
       "name": "r/SideProject",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/SideProject/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/SideProject/top/.rss?t=day&limit=10",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -182,7 +182,7 @@
       "name": "r/LLMDevs",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/LLMDevs/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/LLMDevs/top/.rss?t=day&limit=10",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -204,7 +204,7 @@
       "name": "r/n8n",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/n8n/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/n8n/top/.rss?t=day&limit=10",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -226,7 +226,7 @@
       "name": "r/comfyui",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/comfyui/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/comfyui/top/.rss?t=day&limit=10",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -249,7 +249,7 @@
       "name": "r/StableDiffusion",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/StableDiffusion/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/StableDiffusion/top/.rss?t=day&limit=10",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -272,7 +272,7 @@
       "name": "r/LocalLLaMA",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/LocalLLaMA/top/.rss?t=day&limit=10",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -294,7 +294,7 @@
       "name": "r/ChatGPT",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/ChatGPT/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/ChatGPT/top/.rss?t=day&limit=10",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
@@ -315,7 +315,7 @@
       "name": "r/GeminiAI",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.reddit.com/r/GeminiAI/top/.rss?t=day",
+        "feedUrl": "https://www.reddit.com/r/GeminiAI/top/.rss?t=day&limit=10",
         "summaryIsBody": true,
         "_aihot": {
           "initialBackfillLimit": 10
