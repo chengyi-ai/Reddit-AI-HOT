@@ -125,6 +125,8 @@ export const NAV = {
    * 写 "/hot" 时首页也不放当前热点。
    */
   hidden: [] as Array<"/hot" | "/topics">,
+  /** 精选和全部动态的筛选里放不放“一手”。这个站的一手信源（官方博客）只算热度、不公开展示，筛出来总是空的。 */
+  firstPartyFilter: false as boolean,
 };
 
 /** 条目卡片和详情页上的几处说法和显示。 */

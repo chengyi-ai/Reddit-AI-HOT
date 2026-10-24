@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Form, Link, useNavigation, useSearchParams } from "react-router";
 import { CATEGORY_KEYS, CATEGORY_LABELS, CHANNEL_LABELS, type CategoryKey, type ChannelKey } from "@aihot/contracts/taxonomy";
-import { SITE } from "@aihot/site";
+import { NAV, SITE } from "@aihot/site";
 import { IconClose, IconFilter, IconSearch } from "../../components/icons";
 import { PillTabs } from "../../components/ui/Tabs";
 import { ChoiceTick, Sheet, sheetChoice } from "../../components/ui/Sheet";
@@ -32,7 +32,7 @@ function hrefWith(base: string, params: URLSearchParams, patch: Record<string, s
 function filterOptions(base: string, params: URLSearchParams, noneLabel: string) {
   return [
     { key: "all", label: noneLabel, to: hrefWith(base, params, { category: null, channel: null }) },
-    { key: "firstParty", label: CHANNEL_LABELS.firstParty, to: hrefWith(base, params, { category: null, channel: "firstParty" }) },
+    ...(NAV.firstPartyFilter ? [{ key: "firstParty", label: CHANNEL_LABELS.firstParty, to: hrefWith(base, params, { category: null, channel: "firstParty" }) }] : []),
     ...CATEGORY_KEYS.map((k) => ({ key: k, label: CATEGORY_LABELS[k], to: hrefWith(base, params, { category: k, channel: null }) })),
   ];
 }
