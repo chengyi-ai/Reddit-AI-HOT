@@ -6,8 +6,9 @@
 @source "../../../modules/*/{web.tsx,web/**}";
 
 /* ---------------------------------------------------------------------------
-   Design tokens: warm off-white paper, ink text, one teal accent (cyan in
-   dark), hairline borders, no gradients.
+   Design tokens: a neutral white page (near-black in dark), neutral grey text
+   and hairlines, one orange-red accent from the logo (#F4511E; a darker shade
+   in light so small text keeps 4.5:1 on white), no gradients.
    Components use the semantic names below; values change per theme only.
    --------------------------------------------------------------------------- */
 
@@ -59,15 +60,15 @@
   --color-rank-3: var(--rank-3);
   --color-rank-rest: var(--rank-rest);
 
-  /* Radius scale: mark 5 (inline code, kbd, tiny tags and swatches), control 8 (inputs, small
-     blocks), tile 10 (list rows, hover areas), card 12, panel 14 (wells, pictures), sheet 16 (dialogs,
-     sheets, hero shells); pills are rounded-full. Arbitrary radii are not used. */
-  --radius-mark: 5px;
-  --radius-control: 8px;
-  --radius-tile: 10px;
-  --radius-card: 12px;
-  --radius-panel: 14px;
-  --radius-sheet: 16px;
+  /* Radius scale: mark 6 (inline code, kbd, tiny tags and swatches), control 10 (inputs, small
+     blocks), tile 12 (list rows, hover areas), card 16, panel 16 (wells, pictures), sheet 20 (dialogs,
+     sheets, hero shells); buttons, chips and tags are pills (rounded-full). Arbitrary radii are not used. */
+  --radius-mark: 6px;
+  --radius-control: 10px;
+  --radius-tile: 12px;
+  --radius-card: 16px;
+  --radius-panel: 16px;
+  --radius-sheet: 20px;
 
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
 
@@ -92,55 +93,56 @@
   --gutter-l: max(16px, env(safe-area-inset-left));
   --gutter-r: max(16px, env(safe-area-inset-right));
   color-scheme: light;
-  --bg: #faf9f6;
-  --bg-sunk: #f3f3ef;
-  --bg-muted: #e9ede9;
+  --bg: #ffffff;
+  --bg-sunk: #f5f6f7;
+  --bg-muted: #eceef0;
   /* Sunk fills: wells, pill tracks, search fields, quiet badges. */
   --well: var(--bg-sunk);
   --surface: #ffffff;
-  --surface-2: #fdfdfb;
+  --surface-2: #fafbfb;
   --raised: #ffffff;
-  --sidebar: #fdfdfb;
-  --daybar: #f0f2ee;
-  --ink: #202a30;
-  --ink-2: #303c42;
-  --ink-3: #59656b;
-  --ink-4: #657176;
-  --line: #dfe4e1;
-  --line-strong: #d1d9d5;
-  --line-soft: #e9ede9;
-  --accent: #176b75;
-  --accent-ink: #145f68;
-  --accent-soft: rgba(23, 107, 117, 0.08);
-  --accent-softer: rgba(23, 107, 117, 0.05);
+  --sidebar: #ffffff;
+  --daybar: #f2f3f5;
+  --ink: #1c1d1f;
+  --ink-2: #33363a;
+  --ink-3: #565b61;
+  --ink-4: #666b71;
+  --line: #e3e5e8;
+  --line-strong: #d2d5d9;
+  --line-soft: #eceef0;
+  --accent: #c53a0d;
+  --accent-ink: #a8300a;
+  --accent-soft: rgba(244, 81, 30, 0.08);
+  --accent-softer: rgba(244, 81, 30, 0.05);
   --accent-contrast: #ffffff;
-  --note: #526f72;
-  --hot: #b3402a;
-  --hot-soft: rgba(179, 64, 42, 0.08);
+  --note: #59646e;
+  /* Heat is crimson, kept apart from the orange accent. */
+  --hot: #c0185a;
+  --hot-soft: rgba(192, 24, 90, 0.08);
   --amber: #b8873a;
   --amber-ink: #7c5a24;
   --amber-soft: rgba(184, 135, 58, 0.1);
   --ok: #2f7d5c;
   --ok-soft: rgba(47, 125, 92, 0.1);
   --ok-ink: #2a6e51;
-  --rank-1: #b3402a;
+  --rank-1: #c0185a;
   --rank-2: #a3642f;
   --rank-3: #96702e;
-  --rank-rest: #6b7684;
-  --shadow-card: 0 1px 2px rgba(32, 42, 48, 0.025);
-  --shadow-card-hover: 0 3px 12px rgba(32, 42, 48, 0.055);
-  --shadow-soft: 0 4px 12px rgba(28, 39, 51, 0.06);
-  --shadow-thumb: 0 1px 2px rgba(28, 39, 51, 0.1), 0 1px 1px rgba(28, 39, 51, 0.04);
-  --shadow-pop: 0 12px 32px rgba(28, 39, 51, 0.12);
-  --prose-ink: #26323a;
-  --code-bg: #f6f7f4;
+  --rank-rest: #6b7075;
+  --shadow-card: 0 1px 2px rgba(28, 29, 31, 0.03);
+  --shadow-card-hover: 0 3px 12px rgba(28, 29, 31, 0.07);
+  --shadow-soft: 0 4px 12px rgba(28, 29, 31, 0.06);
+  --shadow-thumb: 0 1px 2px rgba(28, 29, 31, 0.1), 0 1px 1px rgba(28, 29, 31, 0.04);
+  --shadow-pop: 0 12px 32px rgba(28, 29, 31, 0.12);
+  --prose-ink: #2a2c30;
+  --code-bg: #f6f7f8;
   --code-keyword: #006d77;
   --code-string: #2f6f44;
   --code-number: #9a6700;
   --code-title: #6f42c1;
   --code-variable: #a13d10;
   --code-meta: #b42348;
-  --selection: rgba(23, 107, 117, 0.16);
+  --selection: rgba(244, 81, 30, 0.16);
 }
 
 @media (min-width: 961px) {
@@ -151,54 +153,54 @@
 
 [data-theme="dark"] {
   color-scheme: dark;
-  --bg: #13191c;
-  --bg-sunk: #182024;
-  --bg-muted: #202a2f;
+  --bg: #0e1012;
+  --bg-sunk: #131618;
+  --bg-muted: #1f2326;
   --well: color-mix(in oklab, var(--bg-muted) 60%, transparent);
-  --surface: #1a2226;
-  --surface-2: #1d272b;
-  --raised: #202a2f;
-  --sidebar: #161e21;
-  --daybar: #182024;
-  --ink: #e7eceb;
-  --ink-2: #d2dada;
-  --ink-3: #a5b0b3;
-  --ink-4: #89979d;
+  --surface: #16191b;
+  --surface-2: #1a1d20;
+  --raised: #1f2326;
+  --sidebar: #111315;
+  --daybar: #131618;
+  --ink: #e4e6e9;
+  --ink-2: #c8ccd1;
+  --ink-3: #a2a8ae;
+  --ink-4: #8a9097;
   --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(255, 255, 255, 0.12);
+  --line-strong: rgba(255, 255, 255, 0.13);
   --line-soft: rgba(255, 255, 255, 0.06);
-  --accent: #12ccd8;
-  --accent-ink: #2ce2e8;
-  --accent-soft: rgba(18, 204, 216, 0.12);
-  --accent-softer: rgba(18, 204, 216, 0.06);
+  --accent: #f4511e;
+  --accent-ink: #ff7a52;
+  --accent-soft: rgba(244, 81, 30, 0.14);
+  --accent-softer: rgba(244, 81, 30, 0.07);
   --accent-contrast: #000000;
-  --note: #8fb8a8;
-  --hot: #d86a52;
-  --hot-soft: rgba(216, 106, 82, 0.12);
+  --note: #9aa4ad;
+  --hot: #ff5c8a;
+  --hot-soft: rgba(255, 92, 138, 0.12);
   --amber: #d3b26a;
   --amber-ink: #d3b26a;
   --amber-soft: rgba(211, 178, 106, 0.12);
   --ok: #5fc79a;
   --ok-soft: rgba(95, 199, 154, 0.12);
   --ok-ink: #7fd1ad;
-  --rank-1: #d86a52;
+  --rank-1: #ff5c8a;
   --rank-2: #d18a5e;
   --rank-3: #d3b26a;
-  --rank-rest: #7b869a;
+  --rank-rest: #868c94;
   --shadow-card: none;
   --shadow-card-hover: none;
-  --shadow-soft: 0 6px 18px rgba(0, 0, 0, 0.35);
-  --shadow-thumb: 0 1px 2px rgba(0, 0, 0, 0.45);
-  --shadow-pop: 0 16px 40px rgba(0, 0, 0, 0.45);
-  --prose-ink: #d7dfdf;
-  --code-bg: #10151c;
+  --shadow-soft: 0 6px 18px rgba(0, 0, 0, 0.4);
+  --shadow-thumb: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-pop: 0 16px 40px rgba(0, 0, 0, 0.5);
+  --prose-ink: #d9dce0;
+  --code-bg: #0b0d0f;
   --code-keyword: #78dce8;
   --code-string: #a9dc76;
   --code-number: #ffd866;
   --code-title: #ab9df2;
   --code-variable: #fc9867;
   --code-meta: #ff6188;
-  --selection: rgba(18, 204, 216, 0.22);
+  --selection: rgba(244, 81, 30, 0.28);
 }
 
 @layer base {
@@ -569,10 +571,4 @@
   color: var(--ink);
   font-weight: 600;
   white-space: nowrap;
-}
-
-/* Report pages read on a faintly toned paper in the light theme, lighter than the site's page ground;
-   the archive column is halfway between the site sidebar and white. */
-:root:not([data-theme="dark"]) body:has(.report-shell) {
-  background: color-mix(in srgb, var(--bg) 60%, var(--surface));
 }
