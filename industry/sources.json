@@ -268,6 +268,28 @@
       "syndicate_fulltext": false
     },
     {
+      "id": "reddit-localllm",
+      "name": "r/LocalLLM",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.reddit.com/r/LocalLLM/top/.rss?t=day&limit=10",
+        "summaryIsBody": true,
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "社区",
+        "开源"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
       "id": "reddit-localllama",
       "name": "r/LocalLLaMA",
       "kind": "rss",

@@ -158,7 +158,7 @@ export const ABOUT = {
   sourcesFallback: "二十多",
   /** 信源河动画下面的四个环节。 */
   steps: {
-    collect: "精选只来自十几个 Reddit 玩家社区，官方博客和几个大社区只算热度；最快 15 分钟看一次。",
+    collect: "精选只来自十几个 Reddit 玩家社区，官方博客和几个大社区只算热度；每个版块每半小时看一次，只收当天排进本版前 10 名的帖子。",
     store: "抓到的帖子都存下来，同一件事的讨论归到一起，热点榜就是从这里算出来的。",
     select: `先按 Reddit 赞数挑出当天热帖，模型再看有没有能用的东西，写中文标题、摘要和${ITEM_COPY.reasonLabel}；广告和重复帖进不来。`,
     publish: `${EDITION_WHEN.daily} 出日报，${EDITION_WHEN.weekly} 出周报，${EDITION_WHEN.monthly} 出月报。`,
@@ -254,7 +254,7 @@ export const COMMUNITY_FEEDS: { dev: string[]; hn: string[] } = {
 /** 各页分享图（/og/pages/*.png）上的文字。主题目录页的那张按主题数自动生成。 */
 export const CARDS: Record<string, { kicker: string; title: string; subtitle: string; accent?: "hot" | "amber" }> = {
   site: { kicker: subjectAfter("每日", "精选"), title: SITE.tagline, subtitle: SITE.description },
-  all: { kicker: subjectAfter("全部", "动态"), title: "各个 Reddit 玩家社区的新帖，一站看完", subtitle: "按时间汇总进精选的十几个版块的新帖，可按类别与标签筛选。" },
+  all: { kicker: subjectAfter("全部", "动态"), title: "各个 Reddit 玩家社区的热帖，一站看完", subtitle: "按时间汇总十几个版块每天排进前 10 名的帖子，可按类别与标签筛选。" },
   hot: { kicker: "热点榜", title: "过去 48 小时，大家在讨论什么", subtitle: "热度指数、趋势与组成热度的公开来源。", accent: "hot" },
   daily: { kicker: withSubject("日报"), title: subjectAfter(`每天 ${spokenTime(EDITION_TIMES.daily)}，一份读得完的`, "日报"), subtitle: `${subjectAfter("前一天 Reddit 上最值得看的", "分享")}。` },
   weekly: { kicker: withSubject("周报"), title: `一周${REPORTS.entry.noun}，一次看清`, subtitle: "本周最热的教程、提示词、工具与值得回看的讨论。" },
