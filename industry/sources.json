@@ -556,6 +556,824 @@
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
+    },
+    {
+      "id": "x-deepseek-ai",
+      "name": "X：DeepSeek (@deepseek_ai)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:deepseek_ai -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "deepseek",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "国内",
+        "模型"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-kimi-moonshot",
+      "name": "X：Kimi (@Kimi_Moonshot)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:Kimi_Moonshot -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "kimi",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "国内",
+        "模型"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-minimax--ai",
+      "name": "X：MiniMax (@MiniMax__AI)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:MiniMax__AI -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "minimax",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "国内",
+        "模型"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-zai-org",
+      "name": "X：智谱 Z.ai (@Zai_org)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:Zai_org -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "zhipu",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "国内",
+        "模型"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-alibaba-qwen",
+      "name": "X：通义千问 Qwen (@Alibaba_Qwen)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:Alibaba_Qwen -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "qwen",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "国内",
+        "模型"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-xiaomimimo",
+      "name": "X：小米 MiMo (@XiaomiMiMo)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:XiaomiMiMo -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "国内",
+        "模型"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-openai",
+      "name": "X：OpenAI (@OpenAI)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:OpenAI -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "openai",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-openaidevs",
+      "name": "X：OpenAI Developers (@OpenAIDevs)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:OpenAIDevs -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "openai",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "官方",
+        "开发者"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-anthropicai",
+      "name": "X：Anthropic (@AnthropicAI)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:AnthropicAI -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "anthropic",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-claudeai",
+      "name": "X：Claude (@claudeai)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:claudeai -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "anthropic",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-googledeepmind",
+      "name": "X：Google DeepMind (@GoogleDeepMind)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:GoogleDeepMind -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "google",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-geminiapp",
+      "name": "X：Gemini (@GeminiApp)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:GeminiApp -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "google",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-xai",
+      "name": "X：xAI (@xai)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:xai -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "xai",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-aiatmeta",
+      "name": "X：AI at Meta (@AIatMeta)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:AIatMeta -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "meta",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-mistralai",
+      "name": "X：Mistral AI (@MistralAI)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:MistralAI -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-huggingface",
+      "name": "X：Hugging Face (@huggingface)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:huggingface -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "hugging-face",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "官方",
+        "开源"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-cursor-ai",
+      "name": "X：Cursor (@cursor_ai)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:cursor_ai -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "organization"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "cursor",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "官方",
+        "编程"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-sama",
+      "name": "X：Sam Altman (@sama)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:sama -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "openai",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "人物"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-gdb",
+      "name": "X：Greg Brockman (@gdb)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:gdb -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "openai",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "人物"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-thsottiaux",
+      "name": "X：Tibo（Codex） (@thsottiaux)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:thsottiaux -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "openai",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "人物",
+        "编程"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-bcherny",
+      "name": "X：Boris Cherny（Claude Code） (@bcherny)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:bcherny -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "anthropic",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "人物",
+        "编程"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-trq212",
+      "name": "X：Thariq（Claude Code） (@trq212)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:trq212 -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "anthropic",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "人物",
+        "编程"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-officiallogank",
+      "name": "X：Logan Kilpatrick (@OfficialLoganK)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:OfficialLoganK -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "google",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "人物"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-demishassabis",
+      "name": "X：Demis Hassabis (@demishassabis)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:demishassabis -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "google",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "人物"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-karpathy",
+      "name": "X：Andrej Karpathy (@karpathy)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:karpathy -filter:replies",
+        "searchType": "Latest"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "人物"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-clementdelangue",
+      "name": "X：Clem Delangue (@ClementDelangue)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:ClementDelangue -filter:replies",
+        "searchType": "Latest",
+        "publisherRole": "person"
+      },
+      "tier": "T1_5",
+      "owner_entity_id": "hugging-face",
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "人物",
+        "开源"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-testingcatalog",
+      "name": "X：TestingCatalog (@testingcatalog)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:testingcatalog -filter:replies",
+        "searchType": "Latest"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "爆料"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-btibor91",
+      "name": "X：Tibor Blaho (@btibor91)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:btibor91 -filter:replies",
+        "searchType": "Latest"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "爆料"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-arena",
+      "name": "X：LMArena (@arena)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:arena -filter:replies",
+        "searchType": "Latest"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "评测"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-artificialanlys",
+      "name": "X：Artificial Analysis (@ArtificialAnlys)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:ArtificialAnlys -filter:replies",
+        "searchType": "Latest"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "评测"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-metr-evals",
+      "name": "X：METR (@METR_Evals)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:METR_Evals -filter:replies",
+        "searchType": "Latest"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "评测",
+        "安全"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-epochairesearch",
+      "name": "X：Epoch AI (@EpochAIResearch)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:EpochAIResearch -filter:replies",
+        "searchType": "Latest"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "研究"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-akhaliq",
+      "name": "X：AK (@_akhaliq)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:_akhaliq -filter:replies",
+        "searchType": "Latest"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "论文"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-theinformation",
+      "name": "X：The Information (@theinformation)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:theinformation -filter:replies",
+        "searchType": "Latest"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "X",
+        "媒体"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-rowancheung",
+      "name": "X：Rowan Cheung (@rowancheung)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:rowancheung -filter:replies",
+        "searchType": "Latest"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "hot_signal",
+      "interval_minutes": 60,
+      "tags": [
+        "X",
+        "快讯"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-apples-jimmy",
+      "name": "X：Jimmy Apples (@apples_jimmy)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:apples_jimmy -filter:replies",
+        "searchType": "Latest"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "hot_signal",
+      "interval_minutes": 60,
+      "tags": [
+        "X",
+        "爆料"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-maxforai",
+      "name": "X：Max For AI (@MaxForAI)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:MaxForAI -filter:replies",
+        "searchType": "Latest"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "hot_signal",
+      "interval_minutes": 60,
+      "tags": [
+        "X",
+        "简中"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-dotey",
+      "name": "X：宝玉 (@dotey)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:dotey -filter:replies",
+        "searchType": "Latest"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "hot_signal",
+      "interval_minutes": 60,
+      "tags": [
+        "X",
+        "简中"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-op7418",
+      "name": "X：歸藏 (@op7418)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:op7418 -filter:replies",
+        "searchType": "Latest"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "hot_signal",
+      "interval_minutes": 60,
+      "tags": [
+        "X",
+        "简中"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-vista8",
+      "name": "X：向阳乔木 (@vista8)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:vista8 -filter:replies",
+        "searchType": "Latest"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "hot_signal",
+      "interval_minutes": 60,
+      "tags": [
+        "X",
+        "简中"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "x-oran-ge",
+      "name": "X：Orange AI (@oran_ge)",
+      "kind": "x_search",
+      "config": {
+        "query": "from:oran_ge -filter:replies",
+        "searchType": "Latest"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "hot_signal",
+      "interval_minutes": 60,
+      "tags": [
+        "X",
+        "简中"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
     }
   ]
 }
