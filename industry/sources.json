@@ -1374,6 +1374,150 @@
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
+    },
+    {
+      "id": "ithome",
+      "name": "IT之家",
+      "kind": "rss",
+      "config": {
+        "_aihot": {
+          "initialBackfillLimit": 10
+        },
+        "feedUrl": "https://www.ithome.com/rss/"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "媒体",
+        "国内"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "hackernews-frontpage",
+      "name": "Hacker News 首页（100 分以上）",
+      "kind": "rss",
+      "config": {
+        "_aihot": {
+          "initialBackfillLimit": 10
+        },
+        "feedUrl": "https://hnrss.org/frontpage?points=100"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "社区"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "the-decoder",
+      "name": "The Decoder",
+      "kind": "rss",
+      "config": {
+        "_aihot": {
+          "initialBackfillLimit": 10
+        },
+        "feedUrl": "https://the-decoder.com/feed/"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "媒体"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "openrouter-blog",
+      "name": "OpenRouter",
+      "kind": "rss",
+      "config": {
+        "_aihot": {
+          "initialBackfillLimit": 5
+        },
+        "feedUrl": "https://openrouter.ai/blog/feed.xml"
+      },
+      "tier": "T1",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "chinatalk",
+      "name": "ChinaTalk",
+      "kind": "rss",
+      "config": {
+        "_aihot": {
+          "initialBackfillLimit": 5
+        },
+        "feedUrl": "https://www.chinatalk.media/feed"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "国内",
+        "长文"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "recode-china-ai",
+      "name": "Recode China AI",
+      "kind": "rss",
+      "config": {
+        "_aihot": {
+          "initialBackfillLimit": 5
+        },
+        "feedUrl": "https://recodechinaai.substack.com/feed"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "国内",
+        "长文"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "simon-willison",
+      "name": "Simon Willison",
+      "kind": "rss",
+      "config": {
+        "_aihot": {
+          "initialBackfillLimit": 5
+        },
+        "feedUrl": "https://simonwillison.net/atom/entries/"
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 30,
+      "tags": [
+        "长文",
+        "开发者"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
     }
   ]
 }
