@@ -13,6 +13,7 @@
     "./brand/*": "./brand/*"
   },
   "dependencies": {
-    "@aihot/feedback-retention": "*"
+    "@aihot/feedback-retention": "*",
+    "@aihot/reddit-votes": "*"
   }
 }

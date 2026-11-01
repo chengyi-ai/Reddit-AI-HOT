@@ -2,5 +2,6 @@
 // it has an entry for: here for its addresses (module.ts), in server.ts for its backend, in web.ts for its
 // pages' parts. Each list keeps the order its entries appear in on the site.
 import type { ModuleDeclaration } from "@aihot/contracts/modules";
+import { module as redditVotes } from "@aihot/reddit-votes/module";
 
-export const MODULES: readonly ModuleDeclaration[] = [];
+export const MODULES: readonly ModuleDeclaration[] = [redditVotes];

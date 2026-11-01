@@ -1,0 +1,14 @@
+{
+  "name": "@aihot/reddit-votes",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./web": "./web.tsx",
+    "./*": "./*.ts"
+  },
+  "dependencies": {
+    "@aihot/backend": "*",
+    "@aihot/contracts": "*",
+    "@aihot/web": "*"
+  }
+}
