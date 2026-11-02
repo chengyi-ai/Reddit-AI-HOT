@@ -255,6 +255,12 @@ export interface ServerModule {
   notices?: Partial<RequestNotices>;
   /** The origin v1 links stories at while it returns one, instead of the site's (publication/links.ts: hot topics' links.story, related stories' links.api). */
   storyOrigin?: () => string | null;
+  /**
+   * Heat the hot ranking adds beyond its participants (events/hot.ts computeHotRanking), in participants'
+   * units, by story id: at `at` and six hours before. A story it gives a participant's worth or more needs
+   * no second participant to be ranked.
+   */
+  heat?: (at: Date, prev: Date) => Promise<Map<number, { now: number; prev: number }>>;
   /** Short labels on site feed cards, by article id (publication/items.ts withCardBadges); cards it has none for get none. */
   cardBadges?: (ids: string[]) => Promise<Map<string, string[]>>;
   /** More keys a feedback sender is known by; a ban under any of them holds (operations/feedback.ts). */

@@ -86,6 +86,29 @@ export async function loadRedditHot(window: RedditWindow, now = new Date()): Pro
   return { window, entries: rows.map((r, i) => ({ rank: i + 1, votes: Number(r.votes), comments: Number(r.vote_comments), item: toFeedItemSummary(r) })) };
 }
 
+/** This many upvotes count as much as one more participant in the hot ranking. */
+export const VOTES_PER_PARTICIPANT = 100;
+
+/**
+ * The hot ranking's heat from upvotes: each Reddit post of a story within the ranking's 48 hours adds
+ * its upvotes / VOTES_PER_PARTICIPANT, decaying like a participant (half-life 24 hours from when the
+ * post came). Only the current count is kept, so six hours before uses it too, for the posts that had come.
+ */
+export async function voteHeat(at: Date, prev: Date): Promise<Map<number, { now: number; prev: number }>> {
+  const rows = await sql<{ story_id: number; now: number; prev: number }[]>`
+    SELECT ss.story_id,
+      coalesce(sum(rv.score * power(0.5, extract(epoch FROM (${at}::timestamptz - ss.observed_at)) / 3600.0 / 24))
+        FILTER (WHERE ss.observed_at > ${at}::timestamptz - interval '48 hours'), 0) AS now,
+      coalesce(sum(rv.score * power(0.5, extract(epoch FROM (${prev}::timestamptz - ss.observed_at)) / 3600.0 / 24))
+        FILTER (WHERE ss.observed_at <= ${prev} AND ss.observed_at > ${prev}::timestamptz - interval '48 hours'), 0) AS prev
+    FROM story_signals ss JOIN reddit_votes rv ON rv.article_id = ss.article_id
+    LEFT JOIN publications p ON p.article_id = ss.article_id
+    WHERE ss.observed_at > ${prev}::timestamptz - interval '48 hours' AND ss.observed_at <= ${at}
+      AND coalesce(p.visibility, 'public') <> 'withdrawn'
+    GROUP BY ss.story_id`;
+  return new Map(rows.map((r) => [Number(r.story_id), { now: Number(r.now) / VOTES_PER_PARTICIPANT, prev: Number(r.prev) / VOTES_PER_PARTICIPANT }]));
+}
+
 /** "▲ 1.2k" and "💬 300" on the feed cards of posts with counts. */
 export async function voteBadges(ids: string[]): Promise<Map<string, string[]>> {
   const rows = await sql<{ article_id: string; score: number; comments: number }[]>`
@@ -111,6 +134,7 @@ export const server: ServerModule = {
   name: "reddit-votes",
   http,
   cardBadges: voteBadges,
+  heat: voteHeat,
   schedules: [{ name: "reddit.votes", cron: "10,40 * * * *", run: () => refreshRedditVotes() }],
   retention: dropOrphans,
 };
