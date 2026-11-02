@@ -4,6 +4,7 @@ import { CATEGORY_KEYS, toPublicApiCategory, type CategoryKey, type ChannelKey, 
 import type { FeedItemSummary, ItemSummary, MediaView, XPostView } from "@aihot/contracts/site";
 import { POLICY } from "@aihot/site";
 import { sql, type Db } from "../db.ts";
+import { serverModules } from "../modules.ts";
 import { isChineseText } from "../lib/text.ts";
 import { isEmptyOrLinkOnly } from "../content/posts.ts";
 import { proxiedImage, proxiedImageSet } from "../media/imgproxy.ts";
@@ -185,6 +186,17 @@ export function toFeedItemSummary(row: ItemRow): FeedItemSummary {
       quoted: x.quoted ? { authorName: x.quoted.authorName, handle: x.quoted.handle, text: x.quoted.text, translation: x.quoted.translation } : null,
     } : null,
   };
+}
+
+/** The installed modules' labels (ServerModule.cardBadges) on the cards they are for. */
+export async function withCardBadges<T extends FeedItemSummary>(items: T[]): Promise<T[]> {
+  const asks = serverModules().flatMap((m) => (m.cardBadges ? [m.cardBadges] : []));
+  if (!asks.length || !items.length) return items;
+  const found = await Promise.all(asks.map((ask) => ask(items.map((i) => i.id))));
+  return items.map((item) => {
+    const badges = found.flatMap((byId) => byId.get(item.id) ?? []);
+    return badges.length ? { ...item, badges } : item;
+  });
 }
 
 /**

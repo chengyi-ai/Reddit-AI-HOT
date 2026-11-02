@@ -5,7 +5,7 @@ import { pageMeta } from "@aihot/web/lib/seo";
 import type { Screen } from "@aihot/web/components/shell/screens";
 import { PhoneBar } from "../../../apps/web/app/components/shell/PhoneBar";
 import { EmptyState } from "../../../apps/web/app/components/ui/Page";
-import { REDDIT_HOT_API } from "../module.ts";
+import { compact, REDDIT_HOT_API } from "../module.ts";
 import type { RedditHotEntry, RedditWindow } from "../server.ts";
 
 export const handle: Screen = { name: "Reddit 热榜" };
@@ -26,13 +26,6 @@ export async function loader({ request }: { request: Request }) {
 
 export function meta() {
   return pageMeta({ title: "Reddit 热榜", description: "本站收录的 Reddit 帖子，按点赞数排序。", path: "/reddit" });
-}
-
-/** 1234 → "1.2k". */
-function compact(n: number): string {
-  if (n >= 10_000) return `${Math.round(n / 1000)}k`;
-  if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, "")}k`;
-  return String(n);
 }
 
 function Row({ e }: { e: RedditHotEntry }) {

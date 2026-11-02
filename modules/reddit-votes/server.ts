@@ -8,7 +8,7 @@ import { guardedFetch, requireOk } from "@aihot/backend/lib/http-fetch";
 import type { ServerModule } from "@aihot/backend/modules";
 import { ITEM_COLUMNS, ITEM_FROM, toFeedItemSummary, type ItemRow } from "@aihot/backend/publication/items";
 import { listedCondition } from "@aihot/backend/publication/scope";
-import { REDDIT_HOT_API } from "./module.ts";
+import { compact, REDDIT_HOT_API } from "./module.ts";
 
 /** Posts younger than this are looked up again on every run. */
 export const REFRESH_HOURS = 48;
@@ -86,6 +86,13 @@ export async function loadRedditHot(window: RedditWindow, now = new Date()): Pro
   return { window, entries: rows.map((r, i) => ({ rank: i + 1, votes: Number(r.votes), comments: Number(r.vote_comments), item: toFeedItemSummary(r) })) };
 }
 
+/** "▲ 1.2k" and "💬 300" on the feed cards of posts with counts. */
+export async function voteBadges(ids: string[]): Promise<Map<string, string[]>> {
+  const rows = await sql<{ article_id: string; score: number; comments: number }[]>`
+    SELECT article_id, score, comments FROM reddit_votes WHERE article_id IN ${sql(ids)}`;
+  return new Map(rows.map((r) => [r.article_id, [`▲ ${compact(r.score)}`, `💬 ${compact(r.comments)}`]]));
+}
+
 function http(app: FastifyInstance) {
   app.get(REDDIT_HOT_API, async (req, reply) => {
     const asked = (req.query as { window?: string }).window ?? "day";
@@ -103,6 +110,7 @@ async function dropOrphans(): Promise<Record<string, unknown>> {
 export const server: ServerModule = {
   name: "reddit-votes",
   http,
+  cardBadges: voteBadges,
   schedules: [{ name: "reddit.votes", cron: "10,40 * * * *", run: () => refreshRedditVotes() }],
   retention: dropOrphans,
 };

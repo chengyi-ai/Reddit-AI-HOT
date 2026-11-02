@@ -7,7 +7,7 @@ import { cachedByKey } from "../lib/cache.ts";
 import { pickRepresentative, REPRESENTATIVE_COLUMNS, type RepresentativeRow } from "./representative.ts";
 import { decodeCursor, encodeCursor, InvalidCursorError, queryBinding } from "../lib/cursor.ts";
 import {
-  ITEM_COLUMNS, ITEM_FROM, categoryCondition, channelCondition, tagCondition, toFeedItemSummary,
+  ITEM_COLUMNS, ITEM_FROM, categoryCondition, channelCondition, tagCondition, toFeedItemSummary, withCardBadges,
   type ItemRow,
 } from "./items.ts";
 import { evidenceCondition, foldableSelectionCondition, listedCondition, ownFactEvidenceCondition, selectedCondition } from "./scope.ts";
@@ -153,6 +153,7 @@ export async function loadTimeline(q: TimelineQuery): Promise<Omit<TimelineRespo
     if (!row) return [];
     return [{ key, anchorAt, item: toFeedItemSummary(row), group }];
   });
+  const items = await withCardBadges(cards.map((c) => c.item));
 
   // Day header counts for the days on this page, over the full grouped set.
   const days = new Set(page.map((g) => beijingDate(g.anchor_at)));
@@ -160,5 +161,5 @@ export async function loadTimeline(q: TimelineQuery): Promise<Omit<TimelineRespo
 
   const last = page[page.length - 1];
   const nextCursor = hasMore && last ? encodeCursor("tl2", { a: last.anchor_at.getTime(), g: last.gk, b: bind }) : null;
-  return { filters: { channel: q.channel, category: q.category, tag: q.tag }, cards, nextCursor, dayCounts };
+  return { filters: { channel: q.channel, category: q.category, tag: q.tag }, cards: cards.map((c, i) => ({ ...c, item: items[i]! })), nextCursor, dayCounts };
 }

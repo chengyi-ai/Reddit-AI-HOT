@@ -45,6 +45,11 @@ export const FeedItem = memo(function FeedItem({ item, group, filters, read = fa
             · {beijingTime(at)}
           </time>
         )}
+        {item.badges?.map((b, i) => (
+          <span key={b} className={`mono shrink-0 text-[12px] ${i > 0 ? "hidden lg:inline" : ""}`}>
+            {b}
+          </span>
+        ))}
         {item.selected && (
           <span className="hidden lg:inline-flex">
             {item.sameEvent ? <SameEventBadge /> : <SelectedBadge />}

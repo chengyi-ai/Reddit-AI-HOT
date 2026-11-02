@@ -8,3 +8,10 @@ export const module = defineModule({
   pages: [{ path: "reddit", file: "web/page.tsx" }],
   apiPaths: [/^\/api\/site\/reddit-hot$/],
 });
+
+/** 1234 → "1.2k". */
+export function compact(n: number): string {
+  if (n >= 10_000) return `${Math.round(n / 1000)}k`;
+  if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, "")}k`;
+  return String(n);
+}

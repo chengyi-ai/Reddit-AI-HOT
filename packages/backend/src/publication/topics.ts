@@ -16,7 +16,7 @@ import { ENTITIES, entityNames } from "../editorial/vocabulary.ts";
 import { cached, type Cached } from "../lib/cache.ts";
 import { sha256, stableJson } from "../lib/ids.ts";
 import { serverModules } from "../modules.ts";
-import { ITEM_COLUMNS, ITEM_FROM, toFeedItemSummary, type ItemRow } from "./items.ts";
+import { ITEM_COLUMNS, ITEM_FROM, toFeedItemSummary, withCardBadges, type ItemRow } from "./items.ts";
 import { evidenceCondition, listedCondition, ownFactEvidenceCondition, seatedCondition, selectedCondition, storyReportCondition } from "./scope.ts";
 
 export interface Topic {
@@ -346,7 +346,7 @@ export async function loadTopicPage(slug: string, page: number, now?: Date): Pro
   return {
     topic: { ...summarize(topic, seats, index.at, brands, live), groupName, poolTotal: pool },
     modules: Object.fromEntries(parts.map((part) => [part.name, part.part(live)])),
-    items: rows.map(toFeedItemSummary),
+    items: await withCardBadges(rows.map(toFeedItemSummary)),
     page,
     pageCount,
     pageSize: TOPIC_PAGE_SIZE,
