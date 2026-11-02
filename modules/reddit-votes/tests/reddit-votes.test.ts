@@ -7,7 +7,7 @@ import { closeDb, sql } from "@aihot/backend/db";
 import { installModules } from "@aihot/backend/modules";
 import { withCardBadges } from "@aihot/backend/publication/items";
 import { publishArticle } from "@aihot/backend/publication/publish";
-import { loadRedditHot, redditPostId, refreshRedditVotes, server, type PostCounts } from "../server.ts";
+import { loadRedditHot, redditPostId, refreshRedditVotes, server, voteHeat, type PostCounts } from "../server.ts";
 
 const T = tag();
 const SOURCE = `reddit-test-${T}`;
@@ -71,4 +71,24 @@ test("recent posts get their counts; feed cards show them and the list orders li
   await sql`UPDATE publications SET visibility = 'withdrawn' WHERE article_id = ${idA}`;
   const after = (await loadRedditHot("day")).entries.filter((e) => e.item.id.startsWith(T));
   assert.deepEqual(after.map((e) => e.item.id), [idB]);
+});
+
+test("upvotes add heat to the post's story, decaying like a participant; a withdrawn post adds none", async () => {
+  const [{ id: story }] = await sql<{ id: number }[]>`INSERT INTO stories (public_id, title) VALUES (gen_random_uuid(), '事件') RETURNING id`;
+  const fresh = await post(`d${T}`.slice(0, 12), 1);
+  const older = await post(`e${T}`.slice(0, 12), 24);
+  await sql`INSERT INTO reddit_votes (article_id, post_id, score, comments) VALUES (${fresh}, 'd', 500, 3), (${older}, 'e', 1000, 9)`;
+  const at = new Date();
+  for (const [id, hours] of [[fresh, 1], [older, 24]] as const) {
+    await sql`INSERT INTO story_signals (story_id, article_id, participant_key, source_id, kind, observed_at)
+      VALUES (${story}, ${id}, ${`source:${SOURCE}`}, ${SOURCE}, 'editorial', ${new Date(at.getTime() - hours * 3600_000)})`;
+  }
+  const prev = new Date(at.getTime() - 6 * 3600_000);
+  const heat = (await voteHeat(at, prev)).get(Number(story))!;
+  // 500 votes an hour old ≈ 5 × 0.97; 1000 votes a day old = 10 × 0.5. Six hours before, only the older post had come.
+  assert.ok(Math.abs(heat.now - (5 * 0.5 ** (1 / 24) + 5)) < 0.01, String(heat.now));
+  assert.ok(Math.abs(heat.prev - 10 * 0.5 ** (18 / 24)) < 0.01, String(heat.prev));
+
+  await sql`UPDATE publications SET visibility = 'withdrawn' WHERE article_id = ${older}`;
+  assert.ok(Math.abs((await voteHeat(at, prev)).get(Number(story))!.now - 5 * 0.5 ** (1 / 24)) < 0.01);
 });

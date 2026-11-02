@@ -3,6 +3,7 @@
 // 24-hour half-life, and the source time (not collection time) places evidence in the window.
 import { COMMUNITY_FEEDS } from "@aihot/site";
 import { sql, type Db } from "../db.ts";
+import { serverModules } from "../modules.ts";
 import { pickRepresentative, REPRESENTATIVE_COLUMNS, type RepresentativeIdentity } from "../publication/representative.ts";
 import { evidenceCondition, listedCondition } from "../publication/scope.ts";
 
@@ -182,7 +183,11 @@ export function heatIndex(heat: number): number {
 
 export async function computeHotRanking(at = new Date()): Promise<{ id: number; entries: number }> {
   const behind = behindSources(await sourceClocks(), at.getTime(), true);
-  const rows = (await heatRows(at, behind)).filter((r) => Number(r.participants) >= MIN_PARTICIPANTS && Number(r.editorial_participants) >= 1);
+  const added = await moduleHeat(at);
+  const rows = (await heatRows(at, behind)).map((r) => {
+    const add = added.get(Number(r.story_id));
+    return add ? { ...r, heat: Number(r.heat) + add.now, heat_prev: Number(r.heat_prev) + add.prev, heat_obs: Number(r.heat_obs) + add.now, heat_prev_obs: Number(r.heat_prev_obs) + add.prev, added: add.now } : { ...r, added: 0 };
+  }).filter((r) => Number(r.participants) + r.added >= MIN_PARTICIPANTS && Number(r.editorial_participants) >= 1);
   rows.sort((a, b) => Number(b.heat) - Number(a.heat) || (b.latest_at?.getTime() ?? 0) - (a.latest_at?.getTime() ?? 0));
 
   const entries: HotEntry[] = [];
@@ -261,6 +266,20 @@ export async function computeHotRanking(at = new Date()): Promise<{ id: number; 
   // Keep a bounded history of rankings.
   await sql`DELETE FROM hot_rankings WHERE computed_at < now() - interval '30 days'`;
   return { id: row!.id, entries: entries.length };
+}
+
+/** What the installed modules add to each story's heat (ServerModule.heat), summed. */
+async function moduleHeat(at: Date): Promise<Map<number, { now: number; prev: number }>> {
+  const prev = new Date(at.getTime() - 6 * 3600 * 1000);
+  const total = new Map<number, { now: number; prev: number }>();
+  for (const m of serverModules()) {
+    if (!m.heat) continue;
+    for (const [id, add] of await m.heat(at, prev)) {
+      const t = total.get(id) ?? { now: 0, prev: 0 };
+      total.set(id, { now: t.now + add.now, prev: t.prev + add.prev });
+    }
+  }
+  return total;
 }
 
 /**
