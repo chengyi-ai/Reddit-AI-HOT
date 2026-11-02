@@ -569,7 +569,7 @@
       "tier": "T1_5",
       "owner_entity_id": "deepseek",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "国内",
@@ -590,7 +590,7 @@
       "tier": "T1_5",
       "owner_entity_id": "kimi",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "国内",
@@ -611,7 +611,7 @@
       "tier": "T1_5",
       "owner_entity_id": "minimax",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "国内",
@@ -632,7 +632,7 @@
       "tier": "T1_5",
       "owner_entity_id": "zhipu",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "国内",
@@ -653,7 +653,7 @@
       "tier": "T1_5",
       "owner_entity_id": "qwen",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "国内",
@@ -674,7 +674,7 @@
       "tier": "T1_5",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "国内",
@@ -695,7 +695,7 @@
       "tier": "T1_5",
       "owner_entity_id": "openai",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "官方"
@@ -715,7 +715,7 @@
       "tier": "T1_5",
       "owner_entity_id": "openai",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "官方",
@@ -736,7 +736,7 @@
       "tier": "T1_5",
       "owner_entity_id": "anthropic",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "官方"
@@ -756,7 +756,7 @@
       "tier": "T1_5",
       "owner_entity_id": "anthropic",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "官方"
@@ -776,7 +776,7 @@
       "tier": "T1_5",
       "owner_entity_id": "google",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "官方"
@@ -796,7 +796,7 @@
       "tier": "T1_5",
       "owner_entity_id": "google",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "官方"
@@ -816,7 +816,7 @@
       "tier": "T1_5",
       "owner_entity_id": "xai",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "官方"
@@ -836,7 +836,7 @@
       "tier": "T1_5",
       "owner_entity_id": "meta",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "官方"
@@ -856,7 +856,7 @@
       "tier": "T1_5",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "官方"
@@ -876,7 +876,7 @@
       "tier": "T1_5",
       "owner_entity_id": "hugging-face",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "官方",
@@ -897,7 +897,7 @@
       "tier": "T1_5",
       "owner_entity_id": "cursor",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "官方",
@@ -918,7 +918,7 @@
       "tier": "T1_5",
       "owner_entity_id": "openai",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "人物"
@@ -938,7 +938,7 @@
       "tier": "T1_5",
       "owner_entity_id": "openai",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "人物"
@@ -958,7 +958,7 @@
       "tier": "T1_5",
       "owner_entity_id": "openai",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "人物",
@@ -979,7 +979,7 @@
       "tier": "T1_5",
       "owner_entity_id": "anthropic",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "人物",
@@ -1000,7 +1000,7 @@
       "tier": "T1_5",
       "owner_entity_id": "anthropic",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "人物",
@@ -1021,7 +1021,7 @@
       "tier": "T1_5",
       "owner_entity_id": "google",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "人物"
@@ -1041,7 +1041,7 @@
       "tier": "T1_5",
       "owner_entity_id": "google",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "人物"
@@ -1060,7 +1060,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "人物"
@@ -1080,7 +1080,7 @@
       "tier": "T1_5",
       "owner_entity_id": "hugging-face",
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "人物",
@@ -1100,7 +1100,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "爆料"
@@ -1119,7 +1119,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "爆料"
@@ -1138,7 +1138,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "评测"
@@ -1157,7 +1157,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "评测"
@@ -1176,7 +1176,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "评测",
@@ -1196,7 +1196,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "研究"
@@ -1215,7 +1215,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "论文"
@@ -1234,7 +1234,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 30,
+      "interval_minutes": 45,
       "tags": [
         "X",
         "媒体"
@@ -1253,7 +1253,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "hot_signal",
-      "interval_minutes": 60,
+      "interval_minutes": 360,
       "tags": [
         "X",
         "快讯"
@@ -1272,7 +1272,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "hot_signal",
-      "interval_minutes": 60,
+      "interval_minutes": 360,
       "tags": [
         "X",
         "爆料"
@@ -1290,8 +1290,8 @@
       },
       "tier": "T2",
       "owner_entity_id": null,
-      "participation_mode": "hot_signal",
-      "interval_minutes": 60,
+      "participation_mode": "editorial",
+      "interval_minutes": 45,
       "tags": [
         "X",
         "简中"
@@ -1310,7 +1310,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "hot_signal",
-      "interval_minutes": 60,
+      "interval_minutes": 360,
       "tags": [
         "X",
         "简中"
@@ -1329,7 +1329,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "hot_signal",
-      "interval_minutes": 60,
+      "interval_minutes": 360,
       "tags": [
         "X",
         "简中"
@@ -1348,7 +1348,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "hot_signal",
-      "interval_minutes": 60,
+      "interval_minutes": 360,
       "tags": [
         "X",
         "简中"
@@ -1367,7 +1367,7 @@
       "tier": "T2",
       "owner_entity_id": null,
       "participation_mode": "hot_signal",
-      "interval_minutes": 60,
+      "interval_minutes": 360,
       "tags": [
         "X",
         "简中"
