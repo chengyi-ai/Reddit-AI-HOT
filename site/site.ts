@@ -27,9 +27,9 @@ export const SITE = {
    */
   subject: "AI",
   /** 首页的完整标题（浏览器标签、搜索结果）。 */
-  homeTitle: "Reddit-AI-HOT — Reddit 玩家的 AI 教程、提示词、Skill 与项目 · 每日精选",
+  homeTitle: "Reddit-AI-HOT — 中文 AI 圈今天在聊什么 · 每日精选",
   /** 主题目录页（/topics）的标题。 */
-  topicsTitle: "AI 主题：按公司、方向和内容形态浏览教程、提示词、工具与项目",
+  topicsTitle: "AI 主题：按公司、方向和内容形态浏览",
   /** 反馈表单输入框里的示例。 */
   feedbackExample: "例如：我在搜索某个关键词时遇到……我原本想……",
   /** 反馈页标题下面的一句话。 */
@@ -37,13 +37,13 @@ export const SITE = {
   /** 反馈表单邮箱框里的提示。 */
   feedbackEmailHint: "留下邮箱，我们可以回信联系你",
   /** 一句话介绍：搜索引擎、分享卡片、RSS、llms.txt 会用。 */
-  description: `从 Reddit 的 AI 玩家社区里挑出最热的实用内容：AI 教学、好用的提示词、Skill、网站工具和个人项目，${EDITION_WHEN.daily} 出一份日报。`,
+  description: `从 Reddit、X 和科技媒体里挑出中文 AI 圈最关心的事：大厂动作、新模型、国产模型、安全事故、爆料和社区热议，${EDITION_WHEN.daily} 出一份日报。`,
   /** llms.txt 里一句话介绍下面的一段详细介绍（选填）。 */
   llmsIntro: null as string | null,
   /** 一行小字：分享图、海报下方。 */
-  tagline: "Reddit 玩家都在分享的 AI 好东西",
+  tagline: "中文 AI 圈今天都在聊什么",
   /** 搜索引擎读到的关键词（首页结构化数据）。 */
-  keywords: ["AI 教程", "提示词", "Prompt", "Claude Skills", "AI 工具", "Reddit AI"] as string[],
+  keywords: ["AI 新闻", "大模型", "Claude", "OpenAI", "DeepSeek", "Reddit AI"] as string[],
   /** 网站开始收录的年份（结构化数据的时间范围，选填）。 */
   since: null as string | null,
   /** 界面语言（HTML lang、og:locale）。 */
@@ -158,7 +158,7 @@ export const ABOUT = {
   sourcesFallback: "二十多",
   /** 信源河动画下面的四个环节。 */
   steps: {
-    collect: "精选只来自十几个 Reddit 玩家社区，官方博客和几个大社区只算热度；每个版块每半小时看一次，只收当天排进本版前 10 名的帖子。",
+    collect: "精选来自十几个 Reddit 社区、35 个 X 账号和 7 个 RSS；官方博客、几个大社区和简中博主只算热度。Reddit 每个版块每半小时看一次，只收当天排进本版前 10 名的帖子。",
     store: "抓到的帖子都存下来，同一件事的讨论归到一起，热点榜就是从这里算出来的。",
     select: `先按 Reddit 赞数挑出当天热帖，模型再看有没有能用的东西，写中文标题、摘要和${ITEM_COPY.reasonLabel}；广告和重复帖进不来。`,
     publish: `${EDITION_WHEN.daily} 出日报，${EDITION_WHEN.weekly} 出周报，${EDITION_WHEN.monthly} 出月报。`,
@@ -257,7 +257,7 @@ export const CARDS: Record<string, { kicker: string; title: string; subtitle: st
   all: { kicker: subjectAfter("全部", "动态"), title: "各个 Reddit 玩家社区的热帖，一站看完", subtitle: "按时间汇总十几个版块每天排进前 10 名的帖子，可按类别与标签筛选。" },
   hot: { kicker: "热点榜", title: "过去 48 小时，大家在讨论什么", subtitle: "热度指数、趋势与组成热度的公开来源。", accent: "hot" },
   daily: { kicker: withSubject("日报"), title: subjectAfter(`每天 ${spokenTime(EDITION_TIMES.daily)}，一份读得完的`, "日报"), subtitle: `${subjectAfter("前一天 Reddit 上最值得看的", "分享")}。` },
-  weekly: { kicker: withSubject("周报"), title: `一周${REPORTS.entry.noun}，一次看清`, subtitle: "本周最热的教程、提示词、工具与值得回看的讨论。" },
+  weekly: { kicker: withSubject("周报"), title: `一周${REPORTS.entry.noun}，一次看清`, subtitle: "本周 AI 圈最值得回看的事。" },
   monthly: { kicker: withSubject("月报"), title: "一个月攒下的好东西", subtitle: "这个月玩家分享最多、讨论最热的内容。" },
   about: { kicker: "关于", title: `关于 ${SITE.name}`, subtitle: SITE.description },
   terms: { kicker: "使用规则", title: `${SITE.name} 使用规则`, subtitle: "网页、API、RSS 与 MCP 的使用范围。" },
