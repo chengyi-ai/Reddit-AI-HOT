@@ -5,6 +5,7 @@ import assert from "node:assert/strict";
 import { after, before, test } from "node:test";
 import { closeDb, sql } from "@aihot/backend/db";
 import { installModules } from "@aihot/backend/modules";
+import { withCardBadges } from "@aihot/backend/publication/items";
 import { publishArticle } from "@aihot/backend/publication/publish";
 import { loadRedditHot, redditPostId, refreshRedditVotes, server, type PostCounts } from "../server.ts";
 
@@ -38,7 +39,7 @@ test("post ids come from Reddit comment pages only", () => {
   assert.equal(redditPostId("https://example.org/r/x/comments/abc12/"), null);
 });
 
-test("recent posts get their counts; the list orders listed posts of the window by upvotes", async () => {
+test("recent posts get their counts; feed cards show them and the list orders listed posts of the window by upvotes", async () => {
   const a = `a${T}`.slice(0, 12), b = `b${T}`.slice(0, 12), old = `c${T}`.slice(0, 12);
   const idA = await post(a, 2);
   const idB = await post(b, 5);
@@ -61,6 +62,10 @@ test("recent posts get their counts; the list orders listed posts of the window 
   const day = (await loadRedditHot("day")).entries.filter((e) => e.item.id.startsWith(T));
   assert.deepEqual(day.map((e) => [e.item.id, e.votes, e.comments]), [[idA, 5000, 300], [idB, 4471, 89]]);
   assert.equal(day[0]!.item.title, `帖子 ${a}`);
+
+  // Feed cards carry the counts; a post without them gets no labels.
+  const cards = await withCardBadges([day[0]!.item, { ...day[1]!.item, id: idOld }]);
+  assert.deepEqual(cards.map((c) => c.badges), [["▲ 5k", "💬 300"], undefined]);
 
   // A withdrawn post leaves the list.
   await sql`UPDATE publications SET visibility = 'withdrawn' WHERE article_id = ${idA}`;
