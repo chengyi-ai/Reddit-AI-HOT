@@ -7,6 +7,7 @@ import {
   categoryCondition, channelCondition, ITEM_COLUMNS, ITEM_FROM, seatHolders, tagCondition, toFeedItemSummary, withCardBadges,
   type ItemRow,
 } from "./items.ts";
+import { SELECTION } from "@aihot/industry/selection";
 import { listedCondition } from "./scope.ts";
 import { TOPICS } from "./topics.ts";
 
@@ -111,10 +112,13 @@ export function publicMatchCondition(terms: string[]) {
   );
 }
 
+/** Without a search the pool lists only items at or above the site's floor (industry/selection.ts poolFloor). */
+const aboveFloor = () => sql`AND (p.selected OR p.score IS NULL OR p.score >= ${SELECTION.poolFloor})`;
+
 /** The listed items under the filters, up to the pages the pool offers. */
 async function listedCount(f: TimelineFilters, now: Date): Promise<number> {
   return Number(one(await sql<{ n: number }[]>`
-    SELECT count(*) AS n FROM (SELECT 1 FROM publications p WHERE ${listedCondition(now)}
+    SELECT count(*) AS n FROM (SELECT 1 FROM publications p WHERE ${listedCondition(now)} ${aboveFloor()}
       ${channelCondition(f.channel)} ${categoryCondition(f.category)} ${tagCondition(f.tag)} LIMIT ${POOL_MAX_PAGES * POOL_PAGE_SIZE}) t`).n);
 }
 
@@ -157,7 +161,7 @@ async function queryPool(query: PoolQuery, now: Date): Promise<PoolResponse> {
       // Page ids from the timeline index first, then the joins for those rows only.
       const rows = await db<ItemRow[]>`
         WITH page AS (
-          SELECT p.article_id FROM publications p WHERE ${listedCondition(now)} ${filters}
+          SELECT p.article_id FROM publications p WHERE ${listedCondition(now)} ${aboveFloor()} ${filters}
           ORDER BY p.timeline_at DESC, p.article_id DESC LIMIT ${POOL_PAGE_SIZE} OFFSET ${offset})
         SELECT ${ITEM_COLUMNS} ${ITEM_FROM} WHERE p.article_id IN (SELECT article_id FROM page)
         ORDER BY p.timeline_at DESC, p.article_id DESC`;
@@ -228,7 +232,7 @@ async function queryPool(query: PoolQuery, now: Date): Promise<PoolResponse> {
   const today = beijingDate(now);
   const meta = one(await sql<{ today_count: number; updated_at: Date | null }[]>`
     SELECT (SELECT count(*) FROM publications p
-      WHERE ${listedCondition(now)} AND p.timeline_at >= ${beijingMidnight(today)} ${filters}) AS today_count,
+      WHERE ${listedCondition(now)} AND p.timeline_at >= ${beijingMidnight(today)} ${q ? sql`` : aboveFloor()} ${filters}) AS today_count,
       (SELECT max(p.updated_at) FROM publications p WHERE p.eligible) AS updated_at`);
 
   const holders = await seatHolders(rows, now);

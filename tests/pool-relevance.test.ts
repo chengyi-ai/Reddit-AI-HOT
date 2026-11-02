@@ -18,16 +18,16 @@ before(async () => {
 
 async function add(suffix: string, direct: string, body: string, options: {
   title?: string; age?: number; channel?: "news" | "x"; category?: "tool" | "skill"; tags?: string[];
-  visibility?: string; eligible?: boolean; future?: boolean; noSearchRow?: boolean;
+  visibility?: string; eligible?: boolean; future?: boolean; noSearchRow?: boolean; score?: number | null; selected?: boolean;
 } = {}) {
   const at = new Date(+now - (options.age ?? 60) * 1000);
   await sql`INSERT INTO articles (id, source_id, identity_key, url, title, discovered_at, timeline_at)
     VALUES (${id(suffix)}, ${T}, ${id(suffix)}, ${`https://example.org/${id(suffix)}`}, ${options.title ?? "neutral"}, ${at}, ${at})`;
   await sql`INSERT INTO publications (article_id, title, source_id, channel, category, tags, url, discovered_at, timeline_at, sort_at,
-    selected, eligible, visibility, visible_after, search_text)
+    selected, eligible, visibility, visible_after, search_text, score)
     VALUES (${id(suffix)}, ${options.title ?? "neutral"}, ${T}, ${options.channel ?? "news"}, ${options.category ?? "tool"}, ${options.tags ?? []},
-      ${`https://example.org/${id(suffix)}`}, ${at}, ${at}, ${at}, ${options.future ?? false}, ${options.eligible ?? true},
-      ${options.visibility ?? "public"}, ${options.future ? new Date(+now + 60_000) : at}, ${direct})`;
+      ${`https://example.org/${id(suffix)}`}, ${at}, ${at}, ${at}, ${options.future ?? options.selected ?? false}, ${options.eligible ?? true},
+      ${options.visibility ?? "public"}, ${options.future ? new Date(+now + 60_000) : at}, ${direct}, ${options.score ?? null})`;
   if (!options.noSearchRow) await sql`INSERT INTO pool_search (article_id, direct, body) VALUES (${id(suffix)}, ${direct}, ${body})`;
 }
 
@@ -103,4 +103,17 @@ test("equal relevance ranks a seated selected item, then the higher score, then 
   const result = await loadPool(query("wq"));
   assert.deepEqual(result.items.map(item => item.id), ["tie-selected", "tie-score", "tie-unseated", "tie-new"].map(id));
   assert.equal(result.total, 4);
+});
+
+test("without a search the pool lists items at or above the floor, selected and unscored ones too; search finds the rest", async () => {
+  const tags = [`${T}-floor`];
+  await add("floor-low", "floorterm", "", { tags, score: 20 });
+  await add("floor-high", "floorterm", "", { tags, score: 70 });
+  await add("floor-selected", "floorterm", "", { tags, score: 20, selected: true });
+  await add("floor-unscored", "floorterm", "", { tags });
+  const listed = await loadPool({ channel: "all", category: null, tag: tags[0], now });
+  assert.deepEqual(new Set(listed.items.map((item) => item.id)), new Set(["floor-high", "floor-selected", "floor-unscored"].map(id)));
+  assert.equal(listed.total, 3);
+  const found = await loadPool({ channel: "all", category: null, tag: tags[0], q: "floorterm", now });
+  assert.ok(found.items.some((item) => item.id === id("floor-low")));
 });

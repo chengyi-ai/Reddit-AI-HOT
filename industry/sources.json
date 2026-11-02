@@ -302,11 +302,119 @@
       },
       "tier": "T2",
       "owner_entity_id": null,
-      "participation_mode": "hot_signal",
+      "participation_mode": "editorial",
       "interval_minutes": 60,
       "tags": [
         "社区",
         "开源"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "reddit-artificial",
+      "name": "r/artificial",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.reddit.com/r/artificial/top/.rss?t=day&limit=10",
+        "summaryIsBody": true,
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "社区"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "reddit-singularity",
+      "name": "r/singularity",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.reddit.com/r/singularity/top/.rss?t=day&limit=10",
+        "summaryIsBody": true,
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "社区"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "reddit-openai",
+      "name": "r/OpenAI",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.reddit.com/r/OpenAI/top/.rss?t=day&limit=10",
+        "summaryIsBody": true,
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "社区",
+        "官方"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "reddit-deepseek",
+      "name": "r/DeepSeek",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.reddit.com/r/DeepSeek/top/.rss?t=day&limit=10",
+        "summaryIsBody": true,
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "社区",
+        "国内"
+      ],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "reddit-technology",
+      "name": "r/technology",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.reddit.com/r/technology/top/.rss?t=day&limit=25",
+        "summaryIsBody": true,
+        "_aihot": {
+          "initialBackfillLimit": 10
+        }
+      },
+      "tier": "T2",
+      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": [
+        "社区",
+        "科技"
       ],
       "site_fulltext": false,
       "syndicate_fulltext": false
@@ -324,7 +432,7 @@
       },
       "tier": "T2",
       "owner_entity_id": null,
-      "participation_mode": "hot_signal",
+      "participation_mode": "editorial",
       "interval_minutes": 60,
       "tags": [
         "社区"
@@ -345,7 +453,7 @@
       },
       "tier": "T2",
       "owner_entity_id": null,
-      "participation_mode": "hot_signal",
+      "participation_mode": "editorial",
       "interval_minutes": 60,
       "tags": [
         "社区"
